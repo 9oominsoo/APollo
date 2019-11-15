@@ -12,5 +12,6 @@
 		Main page
 		hi!
 
+		hello!
 	</body>
 </html>
