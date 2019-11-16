@@ -10,8 +10,13 @@
 	</head>
 	<body>
 		Main page
+<<<<<<< HEAD
 		hi!
 
 		hello!
 	</body>
 </html>
+=======
+	</body>
+</html>
+>>>>>>> 2bd0270952640c76b6bb7f0f4bd9bd8f7fdd33db
