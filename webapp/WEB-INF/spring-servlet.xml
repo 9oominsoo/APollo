@@ -23,6 +23,7 @@
 	<mvc:default-servlet-handler />
 	<mvc:annotation-driven />
 		
+	
 
 	<!-- 기본 뷰 리졸버 -->
 	<bean id="viewResolver"
