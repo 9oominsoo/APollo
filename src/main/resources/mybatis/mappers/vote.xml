@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="courseDataRoom">
+
+	<!-- 왼쪽 폴더 리스트들 틀림 -->
+	<select id="selectFolderVo" resultType="int">
+		<![CDATA[
+		select 	pRoomNo 
+		from dataRoom where dataroomno = #{dataRoomNo}
+		
+		]]>
+	</select>
+
+	<insert id="insertFolder" parameterType="CourseDataRoomVo">
+		<selectKey keyProperty="dataRoomNo" resultType="int"
+			order="BEFORE">
+			select seq_dataroom_no.nextval from dual
+		</selectKey>
+		<![CDATA[
+		insert into dataroom values(
+            #{dataRoomNo},
+            #{courseNo},
+            #{dataRoomName},
+            #{pRoomNo}
+            )
+		]]>
+	</insert>
+</mapper>

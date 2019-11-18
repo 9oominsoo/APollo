@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.apollo.service.VoteService;
 import com.apollo.vo.VoteVo;
 
-@RestController
 @Controller
 public class VoteController {
 
