@@ -20,6 +20,7 @@ import com.apollo.vo.VoteVo;
 @Controller
 public class VoteController {
 
+	//서비스 
 	@Autowired
 	private VoteService service;
 

@@ -7,6 +7,7 @@ public class VoteVo {
 	public VoteVo() {
 	};
 
+	// 생성자 
 	public VoteVo(int studentId, int electionNo, Date voteDate, String electionName, Date startDate, Date endDate,
 			String status, String type, String roll, int repimo, int partyId, int majorId, String partyName, int votes,
 			String elected, String collegeName, String collegeType, String collegeLine, String majorName,

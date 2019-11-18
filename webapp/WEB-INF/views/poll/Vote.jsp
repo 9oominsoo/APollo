@@ -16,259 +16,221 @@
 <title>Azu</title>
 </head>
 <body id="page-top">
+	<!-- header -->
+	<c:import url="/WEB-INF/views/includes/navigation.jsp"></c:import>
 
-	<!-- Navigation -->
-	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-		<div class="container">
-			<a class="navbar-brand js-scroll-trigger" href="#page-top">Apollo</a>
-			<button class="navbar-toggler navbar-toggler-right" type="button"
-				data-toggle="collapse" data-target="#navbarResponsive"
-				aria-controls="navbarResponsive" aria-expanded="false"
-				aria-label="Toggle navigation">
-				Menu <i class="fas fa-bars"></i>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav text-uppercase ml-auto">
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#about">공약 다시 보기</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#team">후보군 선택하기</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#contact">약관</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	<!-- header -->
+	<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 
-	<!-- Header -->
-	<header class="masthead">
-		<div class="container">
-			<div class="intro-text">
-				<div class="intro-lead-in">소중한 여러분의 한표</div>
-				<div class="intro-heading text-uppercase">여러분이 학교의 주인입니다~</div>
-				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"
-					href="#services">약관 확인 </a>
-			</div>
-		</div>
-	</header>
 
 	<section class="bg-light page-section" id="team">
 		<!-- Team2 두명 이상일 -->
 		<div class="row">
 			<div class="col-sm-6">
-					<div class="container">
-						<div class="row">
-							<div class="col-lg-12 text-center">
-								<h2 class="section-heading text-uppercase">후보 1번</h2>
-								<h3 class="section-subheading text-muted">사랑과 평화</h3>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm-6">
-								<div class="team-member">
-									<img class="mx-auto rounded-circle"
-										src="${pageContext.request.contextPath }/assets/img/team/1.jpg"
-										alt="">
-									<h4>Kay Garland</h4>
-									<p class="text-muted">Lead Designer</p>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="team-member">
-									<img class="mx-auto rounded-circle"
-										src="${pageContext.request.contextPath }/assets/img/team/2.jpg"
-										alt="">
-									<h4>Larry Parker</h4>
-									<p class="text-muted">Lead Marketer</p>
-
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-8 mx-auto text-center">
-								<p class="large text-muted">이러쿵 저러쿵 공약</p>
-							</div>
-						</div>
-						<div class="row">
-
-							<button data-target="#lg-modal" data-toggle="modal"
-								class="btn btn-warning">선택하기</button>
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 text-center">
+							<h2 class="section-heading text-uppercase">후보 1번</h2>
+							<h3 class="section-subheading text-muted">사랑과 평화</h3>
 						</div>
 					</div>
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="team-member">
+								<img class="mx-auto rounded-circle"
+									src="${pageContext.request.contextPath }/assets/img/team/1.jpg"
+									alt="">
+								<h4>Kay Garland</h4>
+								<p class="text-muted">Lead Designer</p>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="team-member">
+								<img class="mx-auto rounded-circle"
+									src="${pageContext.request.contextPath }/assets/img/team/2.jpg"
+									alt="">
+								<h4>Larry Parker</h4>
+								<p class="text-muted">Lead Marketer</p>
+
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-8 mx-auto text-center">
+							<p class="large text-muted">이러쿵 저러쿵 공약</p>
+						</div>
+					</div>
+					<div class="row">
+
+						<button data-target="#lg-modal" data-toggle="modal"
+							class="btn btn-warning">선택하기</button>
+					</div>
+				</div>
 			</div>
 			<div class="col-sm-6">
-					<div class="container">
-						<div class="row">
-							<div class="col-lg-12 text-center">
-								<h2 class="section-heading text-uppercase">후보 2번</h2>
-								<h3 class="section-subheading text-muted">별처럼 수 많은</h3>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm-6">
-								<div class="team-member">
-									<img class="mx-auto rounded-circle"
-										src="${pageContext.request.contextPath }/assets/img/team/1.jpg"
-										alt="">
-									<h4>Kay Garland</h4>
-									<p class="text-muted">Lead Designer</p>
-
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="team-member">
-									<img class="mx-auto rounded-circle"
-										src="${pageContext.request.contextPath }/assets/img/team/2.jpg"
-										alt="">
-									<h4>Larry Parker</h4>
-									<p class="text-muted">Lead Marketer</p>
-
-								</div>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="col-lg-8 mx-auto text-center">
-								<p class="large text-muted">전교생의 등록금을 제가 내겠습니다!!!</p>
-							</div>
-						</div>
-						<div class="row">
-
-							<button data-target="#lg-modal" data-toggle="modal"
-								class="btn btn-warning">선택하기</button>
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 text-center">
+							<h2 class="section-heading text-uppercase">후보 2번</h2>
+							<h3 class="section-subheading text-muted">별처럼 수 많은</h3>
 						</div>
 					</div>
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="team-member">
+								<img class="mx-auto rounded-circle"
+									src="${pageContext.request.contextPath }/assets/img/team/1.jpg"
+									alt="">
+								<h4>Kay Garland</h4>
+								<p class="text-muted">Lead Designer</p>
+
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="team-member">
+								<img class="mx-auto rounded-circle"
+									src="${pageContext.request.contextPath }/assets/img/team/2.jpg"
+									alt="">
+								<h4>Larry Parker</h4>
+								<p class="text-muted">Lead Marketer</p>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-lg-8 mx-auto text-center">
+							<p class="large text-muted">전교생의 등록금을 제가 내겠습니다!!!</p>
+						</div>
+					</div>
+					<div class="row">
+
+						<button data-target="#lg-modal" data-toggle="modal"
+							class="btn btn-warning">선택하기</button>
+					</div>
+				</div>
 			</div>
 		</div>
-		<br><br>
+		<br>
+		<br>
 		<!-- Team2 두명 이상일 -->
 		<div class="row">
 			<div class="col-sm-6">
-					<div class="container">
-						<div class="row">
-							<div class="col-lg-12 text-center">
-								<h2 class="section-heading text-uppercase">후보 1번</h2>
-								<h3 class="section-subheading text-muted">사랑과 평화</h3>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm-6">
-								<div class="team-member">
-									<img class="mx-auto rounded-circle"
-										src="${pageContext.request.contextPath }/assets/img/team/1.jpg"
-										alt="">
-									<h4>Kay Garland</h4>
-									<p class="text-muted">Lead Designer</p>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="team-member">
-									<img class="mx-auto rounded-circle"
-										src="${pageContext.request.contextPath }/assets/img/team/2.jpg"
-										alt="">
-									<h4>Larry Parker</h4>
-									<p class="text-muted">Lead Marketer</p>
-
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-8 mx-auto text-center">
-								<p class="large text-muted">이러쿵 저러쿵 공약</p>
-							</div>
-						</div>
-						<div class="row">
-
-							<button data-target="#lg-modal" data-toggle="modal"
-								class="btn btn-warning">선택하기</button>
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 text-center">
+							<h2 class="section-heading text-uppercase">후보 1번</h2>
+							<h3 class="section-subheading text-muted">사랑과 평화</h3>
 						</div>
 					</div>
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="team-member">
+								<img class="mx-auto rounded-circle"
+									src="${pageContext.request.contextPath }/assets/img/team/1.jpg"
+									alt="">
+								<h4>Kay Garland</h4>
+								<p class="text-muted">Lead Designer</p>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="team-member">
+								<img class="mx-auto rounded-circle"
+									src="${pageContext.request.contextPath }/assets/img/team/2.jpg"
+									alt="">
+								<h4>Larry Parker</h4>
+								<p class="text-muted">Lead Marketer</p>
+
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-8 mx-auto text-center">
+							<p class="large text-muted">이러쿵 저러쿵 공약</p>
+						</div>
+					</div>
+					<div class="row">
+
+						<button data-target="#lg-modal" data-toggle="modal"
+							class="btn btn-warning">선택하기</button>
+					</div>
+				</div>
 			</div>
 			<div class="col-sm-6">
-					<div class="container">
-						<div class="row">
-							<div class="col-lg-12 text-center">
-								<h2 class="section-heading text-uppercase">후보 2번</h2>
-								<h3 class="section-subheading text-muted">별처럼 수 많은</h3>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm-6">
-								<div class="team-member">
-									<img class="mx-auto rounded-circle"
-										src="${pageContext.request.contextPath }/assets/img/team/1.jpg"
-										alt="">
-									<h4>Kay Garland</h4>
-									<p class="text-muted">Lead Designer</p>
-
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="team-member">
-									<img class="mx-auto rounded-circle"
-										src="${pageContext.request.contextPath }/assets/img/team/2.jpg"
-										alt="">
-									<h4>Larry Parker</h4>
-									<p class="text-muted">Lead Marketer</p>
-
-								</div>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="col-lg-8 mx-auto text-center">
-								<p class="large text-muted">전교생의 등록금을 제가 내겠습니다!!!</p>
-							</div>
-						</div>
-						<div class="row">
-
-							<button data-target="#lg-modal" data-toggle="modal"
-								class="btn btn-warning">선택하기</button>
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 text-center">
+							<h2 class="section-heading text-uppercase">후보 2번</h2>
+							<h3 class="section-subheading text-muted">별처럼 수 많은</h3>
 						</div>
 					</div>
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="team-member">
+								<img class="mx-auto rounded-circle"
+									src="${pageContext.request.contextPath }/assets/img/team/1.jpg"
+									alt="">
+								<h4>Kay Garland</h4>
+								<p class="text-muted">Lead Designer</p>
+
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="team-member">
+								<img class="mx-auto rounded-circle"
+									src="${pageContext.request.contextPath }/assets/img/team/2.jpg"
+									alt="">
+								<h4>Larry Parker</h4>
+								<p class="text-muted">Lead Marketer</p>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-lg-8 mx-auto text-center">
+							<p class="large text-muted">전교생의 등록금을 제가 내겠습니다!!!</p>
+						</div>
+					</div>
+					<div class="row">
+
+						<button data-target="#lg-modal" data-toggle="modal"
+							class="btn btn-warning">선택하기</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
-	
-	  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-4">
-          <span class="copyright">Copyright &copy; Your Website 2019</span>
-        </div>
-        <div class="col-md-4">
-          <ul class="list-inline social-buttons">
-            <li class="list-inline-item">
-              <a href="#">
-                <i class="fab fa-twitter"></i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-4">
-          <ul class="list-inline quicklinks">
-            <li class="list-inline-item">
-              <a href="#">Privacy Policy</a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">Terms of Use</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-md-4">
+					<span class="copyright">Copyright &copy; Your Website 2019</span>
+				</div>
+				<div class="col-md-4">
+					<ul class="list-inline social-buttons">
+						<li class="list-inline-item"><a href="#"> <i
+								class="fab fa-twitter"></i>
+						</a></li>
+						<li class="list-inline-item"><a href="#"> <i
+								class="fab fa-facebook-f"></i>
+						</a></li>
+						<li class="list-inline-item"><a href="#"> <i
+								class="fab fa-linkedin-in"></i>
+						</a></li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<ul class="list-inline quicklinks">
+						<li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+						<li class="list-inline-item"><a href="#">Terms of Use</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
 
 	<!-- 확인 버튼 누를시 나오는 모달 창  -->
 	<div id="lg-modal" class="modal fade" tabindex="-1">
