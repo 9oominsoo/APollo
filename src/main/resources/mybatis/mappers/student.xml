@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="student">
+	
+	<!-- 회원가입 -->
+	<insert id="insertStudent" parameterType="StudentVo">
+		<![CDATA[
+			INSERT INTO STUDENT(studentId, studentName, majorId, status, email, password)
+			VALUES(#{studentId}, #{studentName}, #{majorId}, 'NORMAL', #{email}, #{password})
+		]]>
+	</insert>
+
+</mapper>

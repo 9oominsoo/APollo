@@ -3,10 +3,11 @@
  
 <configuration>
     <typeAliases>
+		<typeAlias alias="StudentVo" type="com.apollo.vo.StudentVo" />
     </typeAliases>
  
     <mappers>
-        <!--<mapper resource="mybatis/mappers/emailbook.xml" />-->
+        <mapper resource="mybatis/mappers/student.xml" />
     </mappers>
 </configuration>
  

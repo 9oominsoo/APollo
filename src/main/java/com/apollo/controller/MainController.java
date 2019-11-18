@@ -1,14 +1,14 @@
 package com.apollo.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
-@Controller
+@RestController
 public class MainController{
-	
-	@RequestMapping("/test")
-	public String test() {
-		System.out.println("test page");
-		return "main/Main";
+	@RequestMapping("/main")
+	public ModelAndView schedule() {
+		ModelAndView mav = new ModelAndView("main/Main");
+		return mav;
 	}
 }
