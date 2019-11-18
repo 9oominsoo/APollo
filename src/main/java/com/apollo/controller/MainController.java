@@ -6,6 +6,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 public class MainController{
+	
 	@RequestMapping("/main")
 	public ModelAndView schedule() {
 		ModelAndView mav = new ModelAndView("main/Main");

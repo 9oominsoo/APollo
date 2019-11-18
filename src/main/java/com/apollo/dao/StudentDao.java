@@ -1,5 +1,7 @@
 package com.apollo.dao;
 
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -14,5 +16,9 @@ public class StudentDao {
 	
 	public int signUp(StudentVo vo) {
 		return sqlSession.insert("student.insertStudent", vo);
+	}
+	
+	public StudentVo logIn(Map<String, Object> map) {
+		return sqlSession.selectOne("student.selectStudent", map);
 	}
 }

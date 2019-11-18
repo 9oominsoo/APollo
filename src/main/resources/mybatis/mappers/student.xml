@@ -10,5 +10,13 @@
 			VALUES(#{studentId}, #{studentName}, #{majorId}, 'NORMAL', #{email}, #{password})
 		]]>
 	</insert>
-
+	
+	<!-- 로그인 -->
+	<select id="selectStudent" parameterType="StudentVo" resultType="StudentVo">
+		<![CDATA[
+			SELECT S.STUDENTID, S.STUDENTNAME, M.MAJORNAME, M.COLLEGENAME 
+			FROM STUDENT S, MAJOR M 
+			WHERE S.MAJORID = M.MAJORID AND EMAIL=#{email} AND PASSWORD=#{password}
+		]]>
+	</select>
 </mapper>

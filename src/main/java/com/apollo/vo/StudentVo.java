@@ -11,6 +11,10 @@ public class StudentVo {
 	private String password;
 	private String authToken;
 	
+	//additional Attribute
+	private String majorName;
+	private String collegeName;
+	
 	public StudentVo() {
 	
 	}
@@ -90,6 +94,22 @@ public class StudentVo {
 
 	public void setAuthToken(String authToken) {
 		this.authToken = authToken;
+	}
+
+	public String getMajorName() {
+		return majorName;
+	}
+
+	public void setMajorName(String majorName) {
+		this.majorName = majorName;
+	}
+
+	public String getCollegeName() {
+		return collegeName;
+	}
+
+	public void setCollegeName(String collegeName) {
+		this.collegeName = collegeName;
 	}
 
 	@Override
