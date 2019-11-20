@@ -25,181 +25,12 @@
 
 	<section class="bg-light page-section" id="team">
 		<!-- Team2 두명 이상일 -->
-		<div class="row" id="selectParty">
-			<div class="col-sm-6">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12 text-center">
-							<h2 class="section-heading text-uppercase">후보 1번</h2>
-							<h3 class="section-subheading text-muted">사랑과 평화</h3>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="team-member">
-								<img class="mx-auto rounded-circle"
-									src="${pageContext.request.contextPath }/assets/img/team/1.jpg"
-									alt="">
-								<h4>Kay Garland</h4>
-								<p class="text-muted">Lead Designer</p>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="team-member">
-								<img class="mx-auto rounded-circle"
-									src="${pageContext.request.contextPath }/assets/img/team/2.jpg"
-									alt="">
-								<h4>Larry Parker</h4>
-								<p class="text-muted">Lead Marketer</p>
-
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-lg-8 mx-auto text-center">
-							<p class="large text-muted">이러쿵 저러쿵 공약</p>
-						</div>
-					</div>
-					<div class="row">
-
-						<button data-target="#lg-modal" data-toggle="modal"
-							class="btn btn-warning" id='partyButton'  data-partyno="2">선택하기</button>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12 text-center">
-							<h2 class="section-heading text-uppercase">후보 2번</h2>
-							<h3 class="section-subheading text-muted">별처럼 수 많은</h3>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="team-member">
-								<img class="mx-auto rounded-circle"
-									src="${pageContext.request.contextPath }/assets/img/team/1.jpg"
-									alt="">
-								<h4>Kay Garland</h4>
-								<p class="text-muted">Lead Designer</p>
-
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="team-member">
-								<img class="mx-auto rounded-circle"
-									src="${pageContext.request.contextPath }/assets/img/team/2.jpg"
-									alt="">
-								<h4>Larry Parker</h4>
-								<p class="text-muted">Lead Marketer</p>
-
-							</div>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-lg-8 mx-auto text-center">
-							<p class="large text-muted">전교생의 등록금을 제가 내겠습니다!!!</p>
-						</div>
-					</div>
-					<div class="row">
-
-						<button data-target="#lg-modal" data-toggle="modal"
-							class="btn btn-warning">선택하기</button>
-					</div>
-				</div>
-			</div>
+		<div id="selectParty">
+			
 		</div>
 		<br>
 		<br>
-		<!-- Team2 두명 이상일 -->
-		<div class="row">
-			<div class="col-sm-6">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12 text-center">
-							<h2 class="section-heading text-uppercase">후보 1번</h2>
-							<h3 class="section-subheading text-muted">사랑과 평화</h3>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="team-member">
-								<img class="mx-auto rounded-circle"
-									src="${pageContext.request.contextPath }/assets/img/team/1.jpg"
-									alt="">
-								<h4>Kay Garland</h4>
-								<p class="text-muted">Lead Designer</p>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="team-member">
-								<img class="mx-auto rounded-circle"
-									src="${pageContext.request.contextPath }/assets/img/team/2.jpg"
-									alt="">
-								<h4>Larry Parker</h4>
-								<p class="text-muted">Lead Marketer</p>
-
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-lg-8 mx-auto text-center">
-							<p class="large text-muted">이러쿵 저러쿵 공약</p>
-						</div>
-					</div>
-					<div class="row">
-
-						<button data-target="#lg-modal" data-toggle="modal"
-							class="btn btn-warning">선택하기</button>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12 text-center">
-							<h2 class="section-heading text-uppercase">후보 2번</h2>
-							<h3 class="section-subheading text-muted">별처럼 수 많은</h3>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="team-member">
-								<img class="mx-auto rounded-circle"
-									src="${pageContext.request.contextPath }/assets/img/team/1.jpg"
-									alt="">
-								<h4>Kay Garland</h4>
-								<p class="text-muted">Lead Designer</p>
-
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="team-member">
-								<img class="mx-auto rounded-circle"
-									src="${pageContext.request.contextPath }/assets/img/team/2.jpg"
-									alt="">
-								<h4>Larry Parker</h4>
-								<p class="text-muted">Lead Marketer</p>
-
-							</div>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-lg-8 mx-auto text-center">
-							<p class="large text-muted">전교생의 등록금을 제가 내겠습니다!!!</p>
-						</div>
-					</div>
-					<div class="row">
-
-						<button data-target="#lg-modal" data-toggle="modal"
-							class="btn btn-warning">선택하기</button>
-					</div>
-				</div>
-			</div>
-		</div>
+		
 	</section>
 
 	<!-- Footer -->
@@ -278,8 +109,10 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-		$(document).on(function(){
+		$("document").ready(function(){
 			console.log('start javascript');
+			
+			
 			
 			//user 의 메이저 아이디를 가지고 오자
 			var majorId = '123';
@@ -298,45 +131,107 @@
 					voteList=""
 					
 					for(var i = 0; i<list.length; i++){
-						voteList="<div class='col-sm-6'>"
-						voteList="<div class='container'>"
-						voteList="<div class='row'>"
-						voteList="<div class='col-lg-12 text-center'>"
-						voteList="<h2 class='section-heading text-uppercase'>후보 1번</h2>"
-						voteList="<h3 class='section-subheading text-muted'>사랑과 평화</h3>"
-						voteList="</div>"
-						voteList="</div>"				
-						voteList="	<div class='row'>"	
-						voteList="<div class='col-sm-6'>"
-						voteList="<div class='team-member'>"
-						voteList="<img class='mx-auto rounded-circle'src='${pageContext.request.contextPath }/assets/img/team/1.jpg'alt=''>"
-						voteList="<h4>Kay Garland</h4>"
-						voteList="<p class='text-muted'>Lead Designer</p>"
-						voteList="</div>"
-						voteList="</div>"
-						voteList="</div>"
-						voteList="<div class='col-sm-6'>"
-						voteList="<div class='team-member'>"
-						voteList="<img class='mx-auto rounded-circle'src='${pageContext.request.contextPath }/assets/img/team/2.jpg'alt=''>"
-						voteList="	<h4>Larry Parker</h4>"
-						voteList="<p class='text-muted'>Lead Marketer</p>"
-						voteList="</div>"
-						voteList="</div>"
-						voteList="</div>"
-						voteList="<div class='row'>"
-						voteList="<div class='col-lg-8 mx-auto text-center'>"
-						voteList="<p class='large text-muted'>이러쿵 저러쿵 공약</p>"
-						voteList="</div>"
-						voteList="</div>"
-						voteList="<div class='row'>"
-						//데이터 번호 넘겨줘야 모달창에서 띄워줄 수 있음 
-						voteList="<button data-target=''#lg-modal/ data-toggle='modal' class='btn btn-warning' id='partyButton' data-partyno='partyno'>선택하기</button>"
-						voteList="</div>"
-						voteList="</div>"
-						voteList="</div>"
+						console.log(list[i].partyId);
+						var partyId = list[i].partyId
+						$.ajax({
+							url : "${pageContext.request.contextPath }/votePage/partyDetailList",
+							type : "post",
+							data : {
+								partyId : partyId
+							},
+							dataType : "json",
+							success : function(list) {
+								console.log(list.length);
+								console.log(list);
+								
+									voteList=""
+								
+									voteList+="<div class='row'>"
+									voteList+="<div class='col-sm-6'>"
+									voteList+="<div class='container'>"
+									voteList+="<div class='row'>"
+									voteList+="<div class='col-lg-12 text-center'>"
+									voteList+="<h2 class='section-heading text-uppercase'>후보 1번</h2>"
+									voteList+="<h3 class='section-subheading text-muted'>사랑과 평화</h3>"
+									voteList+="</div>"
+									voteList+="</div>"				
+									voteList+="	<div class='row'>"	
+									voteList+="<div class='col-sm-6'>"
+									voteList+="<div class='team-member'>"
+									voteList+="<img class='mx-auto rounded-circle'src='${pageContext.request.contextPath }/assets/img/team/1.jpg'alt=''>"
+									voteList+="<h4>Kay Garland</h4>"
+									voteList+="<p class='text-muted'>Lead Designer</p>"
+									voteList+="</div>"
+									voteList+="</div>"
+									voteList+="</div>"
+									voteList+="<div class='col-sm-6'>"
+									voteList+="<div class='team-member'>"
+									voteList+="<img class='mx-auto rounded-circle'src='${pageContext.request.contextPath }/assets/img/team/2.jpg'alt=''>"
+									voteList+="	<h4>Larry Parker</h4>"
+									voteList+="<p class='text-muted'>Lead Marketer</p>"
+									voteList+="</div>"
+									voteList+="</div>"
+									voteList+="</div>"
+									voteList+="<div class='row'>"
+									voteList+="<div class='col-lg-8 mx-auto text-center'>"
+									voteList+="<p class='large text-muted'>이러쿵 저러쿵 공약</p>"
+									voteList+="</div>"
+									voteList+="</div>"
+									voteList+="<div class='row'>"
+									//데이터 번호 넘겨줘야 모달창에서 띄워줄 수 있음 
+									voteList+="<button data-target=''#lg-modal/ data-toggle='modal' class='btn btn-warning' id='partyButton' data-partyno='partyno'>선택하기</button>"
+									voteList+="</div>"
+									voteList+="</div>"
+									voteList+="</div>"
+										voteList+="<div class='col-sm-6'>"
+											voteList+="<div class='container'>"
+											voteList+="<div class='row'>"
+											voteList+="<div class='col-lg-12 text-center'>"
+											voteList+="<h2 class='section-heading text-uppercase'>후보 1번</h2>"
+											voteList+="<h3 class='section-subheading text-muted'>사랑과 평화</h3>"
+											voteList+="</div>"
+											voteList+="</div>"				
+											voteList+="	<div class='row'>"	
+											voteList+="<div class='col-sm-6'>"
+											voteList+="<div class='team-member'>"
+											voteList+="<img class='mx-auto rounded-circle'src='${pageContext.request.contextPath }/assets/img/team/1.jpg'alt=''>"
+											voteList+="<h4>Kay Garland</h4>"
+											voteList+="<p class='text-muted'>Lead Designer</p>"
+											voteList+="</div>"
+											voteList+="</div>"
+											voteList+="</div>"
+											voteList+="<div class='col-sm-6'>"
+											voteList+="<div class='team-member'>"
+											voteList+="<img class='mx-auto rounded-circle'src='${pageContext.request.contextPath }/assets/img/team/2.jpg'alt=''>"
+											voteList+="	<h4>Larry Parker</h4>"
+											voteList+="<p class='text-muted'>Lead Marketer</p>"
+											voteList+="</div>"
+											voteList+="</div>"
+											voteList+="</div>"
+											voteList+="<div class='row'>"
+											voteList+="<div class='col-lg-8 mx-auto text-center'>"
+											voteList+="<p class='large text-muted'>이러쿵 저러쿵 공약</p>"
+											voteList+="</div>"
+											voteList+="</div>"
+											voteList+="<div class='row'>"
+											//데이터 번호 넘겨줘야 모달창에서 띄워줄 수 있음 
+											voteList+="<button data-target=''#lg-modal/ data-toggle='modal' class='btn btn-warning' id='partyButton' data-partyno='partyno'>선택하기</button>"
+											voteList+="</div>"
+											voteList+="</div>"
+											voteList+="</div>"
+									voteList+="</div>"
+								
+									
+							$("#selectParty").append(voteList);
+							voteList="";
+								
+							},
+							error : function(XHR,
+									status, error) {
+								console.error(status+ " : "+ error);
+							}
+						});
 					}
-				$("#selectParty").append(voteList);
-				voteList="";
 					
 				},
 				error : function(XHR,

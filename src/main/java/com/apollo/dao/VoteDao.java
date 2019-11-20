@@ -16,16 +16,16 @@ public class VoteDao {
 	
 	
 	//<!-- #후보 PARTY 찾기   -->
-	public VoteVo getParty(VoteVo vo){
+	public List<VoteVo> getParty(VoteVo vo){
 		int majorId = vo.getMajorId();
 		
-		VoteVo vo2 = session.selectOne("votePage.searchParty", majorId);
-		return vo2;
+		List<VoteVo> list = session.selectList("votePage.searchParty", majorId);
+		return list;
 	}
 	
 	//<!-- #PARTY 상세보기  -->
 	// 후보군들 선택 
-	public List<VoteVo> partyList(VoteVo vo){
+	public List<VoteVo> partyDetailList(VoteVo vo){
 		
 		List<VoteVo> list = session.selectList("votePage.partyDetail", vo.getPartyId());
 		return list;

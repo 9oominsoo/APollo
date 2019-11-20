@@ -14,14 +14,15 @@ public class VoteService {
 	@Autowired
 	private VoteDao dao;
 	
-	public VoteVo getParty(VoteVo vo) {
-		VoteVo vo2 = dao.getParty(vo);
-		return vo2;
+	//파티안에 디테일 리스트 
+	public List<VoteVo> getParty(VoteVo vo) {
+		List<VoteVo> list = dao.partyDetailList(vo);
+		return list;
 	}
 	
 	public List<VoteVo> partyList(VoteVo vo){
 		
-		List<VoteVo> list = dao.partyList(vo);
+		List<VoteVo> list = dao.getParty(vo);
 		return list;
 	}
 	
