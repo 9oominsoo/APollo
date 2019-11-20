@@ -12,19 +12,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.apollo.service.VoteService;
 import com.apollo.vo.VoteVo;
 
 @Controller
+@RequestMapping("/votePage")
 public class VoteController {
 
 	//서비스 
 	@Autowired
 	private VoteService service;
 
-	@RequestMapping("/votePage")
+	@RequestMapping("/main")
 	public String votePage() {
 		System.out.println("vote Page");
 		return "poll/Vote";
@@ -63,5 +66,15 @@ public class VoteController {
 	@RequestMapping(value = "/vote", method = RequestMethod.POST)
 	public VoteVo voteUser() {
 		return null;
+	}
+	
+	@ResponseBody
+	@RequestMapping("/searchParty")
+	public List<VoteVo> searchParty(@RequestParam("majorId") int majorId ){
+		System.out.println("search party !");
+		VoteVo vo = new VoteVo();
+		vo.setMajorId(majorId);
+		List<VoteVo> list = service.partyList(vo);
+		return list;
 	}
 }

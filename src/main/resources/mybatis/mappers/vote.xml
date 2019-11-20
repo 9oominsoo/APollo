@@ -1,30 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="courseDataRoom">
+<mapper namespace="votePage">
 
-	<!-- 왼쪽 폴더 리스트들 틀림 -->
-	<select id="selectFolderVo" resultType="int">
+	<select id="searchParty" parameterType="VoteVo" resultType="VoteVo">
 		<![CDATA[
-		select 	pRoomNo 
-		from dataRoom where dataroomno = #{dataRoomNo}
-		
+		SELECT 	P.PARTYNAME, 
+				M.MAJORNAME 
+		FROM 
+				PARTY P, 
+				MAJOR M 
+		WHERE 
+				P.MAJORID = M.MAJORID 
+				AND 
+				M.MAJORID=123
 		]]>
 	</select>
-
-	<insert id="insertFolder" parameterType="CourseDataRoomVo">
-		<selectKey keyProperty="dataRoomNo" resultType="int"
-			order="BEFORE">
-			select seq_dataroom_no.nextval from dual
-		</selectKey>
+	
+	<select id="partyDetail" parameterType="VoteVo" resultType="VoteVo">
 		<![CDATA[
-		insert into dataroom values(
-            #{dataRoomNo},
-            #{courseNo},
-            #{dataRoomName},
-            #{pRoomNo}
-            )
+			SELECT * FROM CANDIDATE 
+				WHERE 
+				PARTYID = (SELECT PARTYID FROM PARTY WHERE PARTYID = 1234)
+			SELECT FILEPATH FROM DATAFILE WHERE FILENO = 1
+		]]>
+	</select>
+	
+	<insert id="vote" parameterType="VoteVo">
+		<![CDATA[
+			INSERT INTO VOTE VALUES (201520867, 2, SYSDATE);
 		]]>
 	</insert>
 	
+	
+
 </mapper>

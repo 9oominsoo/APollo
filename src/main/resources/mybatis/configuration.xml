@@ -4,10 +4,12 @@
 <configuration>
     <typeAliases>
 		<typeAlias alias="StudentVo" type="com.apollo.vo.StudentVo" />
+   		<typeAlias alias="VoteVo" type="com.apollo.vo.VoteVo" />
     </typeAliases>
  
     <mappers>
         <mapper resource="mybatis/mappers/student.xml" />
+        <mapper resource="mybatis/mappers/vote.xml" />
     </mappers>
 </configuration>
  

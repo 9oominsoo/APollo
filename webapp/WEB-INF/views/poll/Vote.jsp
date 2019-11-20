@@ -25,7 +25,7 @@
 
 	<section class="bg-light page-section" id="team">
 		<!-- Team2 두명 이상일 -->
-		<div class="row">
+		<div class="row" id="selectParty">
 			<div class="col-sm-6">
 				<div class="container">
 					<div class="row">
@@ -63,7 +63,7 @@
 					<div class="row">
 
 						<button data-target="#lg-modal" data-toggle="modal"
-							class="btn btn-warning">선택하기</button>
+							class="btn btn-warning" id='partyButton'  data-partyno="2">선택하기</button>
 					</div>
 				</div>
 			</div>
@@ -249,7 +249,7 @@
 								겠습니까?</p>
 							<div class="row">
 								<div class="col-sm-6">
-									<div class="team-member">
+									<div class="team-member" id="modalDetail">
 										<img class="mx-auto rounded-circle"
 											src="${pageContext.request.contextPath }/assets/img/team/1.jpg"
 											alt="">
@@ -269,14 +269,107 @@
 								</div>
 							</div>
 							<br> <br>
-							<button id="insertVote" data-target="#lg-modal" type="submit"
-								data-toggle="modal" class="btn  btn-warning">투표하기</button>
+							<button id="finalButton" data-target="#lg-modal" type="submit"
+								data-toggle="modal" class="btn  btn-warning" >투표하기</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		$(document).on(function(){
+			console.log('start javascript');
+			
+			//user 의 메이저 아이디를 가지고 오자
+			var majorId = '123';
+			
+			$.ajax({
+				url : "${pageContext.request.contextPath }/votePage/searchParty",
+				type : "post",
+				data : {
+					majorId : majorId
+				},
+				dataType : "json",
+				success : function(list) {
+					console.log(list.length);
+					console.log(list);
+					
+					voteList=""
+					
+					for(var i = 0; i<list.length; i++){
+						voteList="<div class='col-sm-6'>"
+						voteList="<div class='container'>"
+						voteList="<div class='row'>"
+						voteList="<div class='col-lg-12 text-center'>"
+						voteList="<h2 class='section-heading text-uppercase'>후보 1번</h2>"
+						voteList="<h3 class='section-subheading text-muted'>사랑과 평화</h3>"
+						voteList="</div>"
+						voteList="</div>"				
+						voteList="	<div class='row'>"	
+						voteList="<div class='col-sm-6'>"
+						voteList="<div class='team-member'>"
+						voteList="<img class='mx-auto rounded-circle'src='${pageContext.request.contextPath }/assets/img/team/1.jpg'alt=''>"
+						voteList="<h4>Kay Garland</h4>"
+						voteList="<p class='text-muted'>Lead Designer</p>"
+						voteList="</div>"
+						voteList="</div>"
+						voteList="</div>"
+						voteList="<div class='col-sm-6'>"
+						voteList="<div class='team-member'>"
+						voteList="<img class='mx-auto rounded-circle'src='${pageContext.request.contextPath }/assets/img/team/2.jpg'alt=''>"
+						voteList="	<h4>Larry Parker</h4>"
+						voteList="<p class='text-muted'>Lead Marketer</p>"
+						voteList="</div>"
+						voteList="</div>"
+						voteList="</div>"
+						voteList="<div class='row'>"
+						voteList="<div class='col-lg-8 mx-auto text-center'>"
+						voteList="<p class='large text-muted'>이러쿵 저러쿵 공약</p>"
+						voteList="</div>"
+						voteList="</div>"
+						voteList="<div class='row'>"
+						//데이터 번호 넘겨줘야 모달창에서 띄워줄 수 있음 
+						voteList="<button data-target=''#lg-modal/ data-toggle='modal' class='btn btn-warning' id='partyButton' data-partyno='partyno'>선택하기</button>"
+						voteList="</div>"
+						voteList="</div>"
+						voteList="</div>"
+					}
+				$("#selectParty").append(voteList);
+				voteList="";
+					
+				},
+				error : function(XHR,
+						status, error) {
+					console.error(status+ " : "+ error);
+				}
+			});
+			
+			$("#partyButton").on("click",function(){
+				consol.log("hi");
+				$this = $(this);
+				console.log($this);
+				var partyno = $this.data("partyno");
+				console.log(partyno);
+				
+				modalstr=""
+				modalstr="<img class='mx-auto rounded-circle' src='${pageContext.request.contextPath }/assets/img/team/1.jpg' alt=''>";
+				modalstr="<h4>Kay Garland</h4>"
+				modalstr="<p class='text-muted'>Lead Designer</p>"
+				
+				$("#modalDetail").append();
+				modalstr="";
+				
+				$("#finalButton").on("click",function(){
+					console.log(partyno);
+					
+					//원래받았던 파티넘버에 votes를 추가시키고 메인페이지로 넘겨버리자~ 
+				})
+			})
+			
+			
+		})
+	</script>
 
 	<!-- Bootstrap core JavaScript -->
 	<script
@@ -287,10 +380,6 @@
 	<!-- Plugin JavaScript -->
 	<script
 		src="${pageContext.request.contextPath }/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-	<!-- Page level plugins -->
-	<script
-		src="${pageContext.request.contextPath }/assets/vendor/chart.js/Chart.min.js"></script>
 
 	<!-- Contact form JavaScript -->
 	<script
@@ -303,11 +392,6 @@
 		src="${pageContext.request.contextPath }/assets/js/agency.min.js"></script>
 
 
-	<!-- Page level custom scripts -->
-	<script
-		src="${pageContext.request.contextPath }/assets/js/demo/chart-area-demo.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/assets/js/demo/chart-pie-demo.js"></script>
-
+	
 </body>
 </html>
