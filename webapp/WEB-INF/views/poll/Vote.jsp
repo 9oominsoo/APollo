@@ -64,7 +64,7 @@
 	</footer>
 
 	<!-- 확인 버튼 누를시 나오는 모달 창  -->
-	<div id="lg-modal" class="modal fade" tabindex="-1">
+	<div id="lg-modal1" class="modal fade" tabindex="-1">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -78,9 +78,9 @@
 						<div class="panel-body">
 							<p class="text-main text-bold mar-no bord-btm">이 후보군을 선택하시
 								겠습니까?</p>
-							<div class="row">
+							<div class="row " id="modalDetail">
 								<div class="col-sm-6">
-									<div class="team-member" id="modalDetail">
+									<div class="team-member">
 										<img class="mx-auto rounded-circle"
 											src="${pageContext.request.contextPath }/assets/img/team/1.jpg"
 											alt="">
@@ -111,7 +111,7 @@
 	<script type="text/javascript">
 		$("document").ready(function(){
 			console.log('start javascript');
-			
+			modalstr=""
 			
 			
 			//user 의 메이저 아이디를 가지고 오자
@@ -171,7 +171,6 @@
 									voteList+="<p class='text-muted'>"+list2[0].studentId+"</p>"
 									voteList+="</div>"
 									voteList+="</div>"
-									voteList+="</div>"
 									voteList+="<div class='col-sm-6'>"
 									voteList+="<div class='team-member'>"
 									voteList+="<img class='mx-auto rounded-circle'src='${pageContext.request.contextPath }/assets/img/team/2.jpg'alt=''>"
@@ -201,22 +200,25 @@
 									
 									
 									$("#partyButton").on("click",function(){
+										$("#lg-modal1").modal();
 										console.log("vote ");
 										$this = $(this);
 										console.log($this);
 										var partyno = $this.data("partyno");
 										console.log(partyno);
 										
-										modalstr=""
-										modalstr="<img class='mx-auto rounded-circle' src='${pageContext.request.contextPath }/assets/img/team/1.jpg' alt=''>";
-										modalstr="<h4>Kay Garland</h4>"
-										modalstr="<p class='text-muted'>Lead Designer</p>"
-										
+										$("#modalDetail").html("");
+										modalstr+="<img class='mx-auto rounded-circle' src='${pageContext.request.contextPath }/assets/img/team/1.jpg' alt=''>";
+										modalstr+="<h4>dma</h4>"
+										modalstr+="<p class='text-muted'>Lead Designer</p>"
+										console.log(modalstr);
 										$("#modalDetail").append();
 										modalstr="";
 										
 										$("#finalButton").on("click",function(){
 											console.log(partyno);
+											
+											
 											
 											//원래받았던 파티넘버에 votes를 추가시키고 메인페이지로 넘겨버리자~ 
 										})

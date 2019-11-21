@@ -30,6 +30,11 @@
 		]]>
 	</insert>
 	
-	
+	<!-- 투표했는지 확인여부 -->
+	<select id="confirmVoted" parameterType="VoteVo" resultType="int">
+		<![CDATA[
+		select count(*) from vote where 201520867
+		]]>
+	</select>
 
 </mapper>

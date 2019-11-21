@@ -61,11 +61,6 @@ public class VoteController {
 		return null;
 	}
 	
-	//투표하기
-	@RequestMapping(value = "/vote", method = RequestMethod.POST)
-	public VoteVo voteUser() {
-		return null;
-	}
 	
 	@ResponseBody
 	@RequestMapping(value = "/searchParty" , method = RequestMethod.POST)
@@ -86,5 +81,20 @@ public class VoteController {
 		vo.setPartyId(partyId);
 		List<VoteVo> list = service.getParty(vo);
 		return list;
+	}
+	@ResponseBody
+	@RequestMapping(value = "/voteMan" , method = RequestMethod.POST)
+	public int voteMan(@RequestParam("studentId") int studentId,
+						@RequestParam("partyId") int partyId) {
+		VoteVo vo = new VoteVo();
+		vo.setStudentId(studentId);
+		vo.setPartyId(partyId);
+		//이거 하기전에 이미 투표했는지 확인 할 수 있도록 만든다 
+		
+		if(service.voteMan(vo) == 1) {
+			return 1;
+		}
+		//경고창과 함께 메인페이지로 이동 
+		return 0;
 	}
 }

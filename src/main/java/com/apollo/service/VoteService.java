@@ -28,7 +28,10 @@ public class VoteService {
 	
 	public int voteMan(VoteVo vo) {
 		
+		if( dao.confirmVote(vo) == 0) {
 		return dao.voteMan(vo);
+		}
+		return 0;
 	}
 	
 }

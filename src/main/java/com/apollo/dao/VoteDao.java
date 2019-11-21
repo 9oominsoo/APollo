@@ -32,12 +32,17 @@ public class VoteDao {
 	}
 	
 	//<!-- #투표하기  -->
-	// 투표 후 투표 여부 확인 할 수 있게 
 	public int voteMan(VoteVo vo) {
 		int vote = session.insert("votePage.vote", vo.getStudentId());
 		return vote;
 	}
+	// 투표 후 투표 여부 확인 할 수 있게 
+	public int confirmVote(VoteVo vo) {
+		int vote = session.selectOne("votePage.confirmVoted", vo.getStudentId());
+		return vote;
+	}
 	// 선거자 득표 수 올려주기 
+	
 	// <!-- #중복투표 방지 트리거 -->
 
 }
