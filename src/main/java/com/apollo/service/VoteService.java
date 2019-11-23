@@ -27,9 +27,14 @@ public class VoteService {
 	}
 	
 	public int voteMan(VoteVo vo) {
-		
+		//투표자가 투표 안했을시에 투표하도록 설정 
 		if( dao.confirmVote(vo) == 0) {
+		//후보자 득표수 올려주기 
+		int updateVotes = dao.updateVotes(vo);
+		if(updateVotes == 1)
+		// vote 에 추가 ~ 
 		return dao.voteMan(vo);
+		else return 0;
 		}
 		return 0;
 	}

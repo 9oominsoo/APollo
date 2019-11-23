@@ -43,6 +43,10 @@ public class VoteDao {
 	}
 	// 선거자 득표 수 올려주기 
 	
+	public int updateVotes(VoteVo vo) {
+		int vote = session.update("votePage.updateVotes", vo.getPartyId());
+		return vote;
+	}
 	// <!-- #중복투표 방지 트리거 -->
 
 }

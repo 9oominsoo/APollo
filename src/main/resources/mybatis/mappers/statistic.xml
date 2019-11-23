@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="statistic">
+	
+	<!-- 총학생 수  -->
+	<select id="" parameterType="" resultType="">
+		<![CDATA[
+			select count(*) from student where status = 'NORMAL' and majorid = #{majorId} 
+		]]>
+	</select>
+	
+	<!-- 파티마다 득표수 확인  -->
+	<select id="" parameterType="" resultType="">
+		<![CDATA[
+			select partyid , votes from party where majorid = #{majorId} and electionNo = #{electionNo} 
+		]]>
+	</select>
+	
+	<!--  각 메이저 별로 모든 학생 수 및 득표수를 뽑아 보자  -->
+</mapper>
