@@ -65,8 +65,8 @@
 	<div id="lg-modal1" class="modal fade" tabindex="-1">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title" id="myLargeModalLabel">후보 n번</h4>
+				<div class="modal-header" id="modalHeader">
+					
 				</div>
 				<div class="modal-body">
 					<div class="panel">
@@ -107,10 +107,10 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-		$("document").ready(
-						function() {
+		$("document").ready(function() {
 							console.log('start javascript');
-							modalstr = ""
+							modalstr = "";
+							
 							
 							//user 의 메이저 아이디를 가지고 오자
 							var studentId = '201520867'
@@ -118,9 +118,8 @@
 							// 일렉션 넘버 고정값~
 							var electionNo = '2' ;
 							
-							voteList = "";
-							$
-									.ajax({
+							
+							$.ajax({
 										url : "${pageContext.request.contextPath }/votePage/searchParty",
 										type : "post",
 										data : {
@@ -130,7 +129,8 @@
 										success : function(list) {
 											console.log(list.length);
 											console.log(list);
-
+											voteList = "";
+											
 											for (var i = 0; i < list.length; i++) {
 												console.log(list[i].partyId);
 												var partyId = list[i].partyId;
@@ -143,121 +143,13 @@
 												console.log(collegeName);
 												console.log(collegeLine);
 												console.log(collegeType);
-												$
-														.ajax({
-															url : "${pageContext.request.contextPath }/votePage/partyDetailList",
-															type : "post",
-															data : {
-																partyId : partyId
-															},
-															dataType : "json",
-															success : function(
-																	list2) {
-																console
-																		.log(list2.length);
-																console
-																		.log(list2);
+												
+												candidateList(list[i], i);
 
-																voteList += "<div class='row'>"
-																voteList += "<div class='col-sm-6'>"
-																voteList += "<div class='container'>"
-																voteList += "<div class='row'>"
-																voteList += "<div class='col-lg-12 text-center'>"
-																voteList += "<h2 class='section-heading text-uppercase'>후보 "
-																		+ electionNo
-																		+ "번</h2>"
-																voteList += "<h3 class='section-subheading text-muted'>"
-																		+ partyName
-																		+ "</h3>"
-																voteList += "</div>"
-																voteList += "</div>"
-																voteList += "	<div class='row'>"
-																voteList += "<div class='col-sm-6'>"
-																voteList += "<div class='team-member'>"
-																voteList += "<img class='mx-auto rounded-circle'src='${pageContext.request.contextPath }/assets/img/team/1.jpg'alt=''>"
-																voteList += "<h4>"
-																		+ list2[0].roll
-																		+ "</h4>"
-																voteList += "<p class='text-muted'>"
-																		+ list2[0].studentId
-																		+ "</p>"
-																voteList += "</div>"
-																voteList += "</div>"
-																voteList += "<div class='col-sm-6'>"
-																voteList += "<div class='team-member'>"
-																voteList += "<img class='mx-auto rounded-circle'src='${pageContext.request.contextPath }/assets/img/team/2.jpg'alt=''>"
-																voteList += "	<h4>"
-																		+ list2[1].roll
-																		+ "</h4>"
-																voteList += "<p class='text-muted'>"
-																		+ list2[1].studentId
-																		+ "</p>"
-																voteList += "</div>"
-																voteList += "</div>"
-																voteList += "</div>"
-																voteList += "<div class='row'>"
-																voteList += "<div class='col-lgs-8 mx-auto text-center'>"
-																voteList += "<p class='large text-muted'>"
-																		+ "<"+collegeName+">"
-																		+ collegeLine
-																		+ "-"
-																		+ collegeType
-																		+ "  이러쿵 저러쿵 공약</p>"
-																voteList += "</div>"
-																voteList += "</div>"
-																voteList += "<div class='row'>"
-																//데이터 번호 넘겨줘야 모달창에서 띄워줄 수 있음 
-																voteList += "<button data-target=''#lg-modal/ data-toggle='modal' class='btn btn-warning' id='partyButton' data-partyno="+partyId+">선택하기</button>"
-																voteList += "</div>"
-																voteList += "</div>"
-																voteList += "</div>"
-																voteList += "</div>"
-
-																$("#selectParty").append(voteList);
-																voteList = "";
-
-																$("#partyButton").on("click", function() {
-																					$("#lg-modal1").modal();
-																					console.log("vote ");
-																					$this = $(this);
-																					console.log($this);
-																					var partyno = $this.data("partyno");
-																					console.log(partyno);
-
-																					$("#modalDetail").html("");
-																					modalstr += "<img class='mx-auto rounded-circle' src='${pageContext.request.contextPath }/assets/img/team/1.jpg' alt=''>";
-																					modalstr += "<h4>dma</h4>"
-																					modalstr += "<p class='text-muted'>Lead Designer</p>"
-																					console
-																							.log(modalstr);
-																					$(
-																							"#modalDetail")
-																							.append();
-																					modalstr = "";
-
-																					$("#finalButton").on("click",function() {
-																										console.log(partyno);
-																										console.log(electionNo);
-																										console.log(majorId);
-																										console.log(studentId);
-																										
-																										//원래받았던 파티넘버에 votes를 추가시키고 메인페이지로 넘겨버리자~ 
-																									})
-																				})
-																				
-															
-															},
-															error : function(
-																	XHR,
-																	status,
-																	error) {
-																console
-																		.error(status
-																				+ " : "
-																				+ error);
-															}
-														});
 											}
+												
+											
+
 
 										},
 										error : function(XHR, status, error) {
@@ -265,11 +157,172 @@
 													+ error);
 										}
 									});
-					
+							$("#partyButton").on("click", function() {
+								$("#modalHeader").html("<h4 class='modal-title' id='myLargeModalLabel'>후보 "+partyId+"</h4>")
+
+								$("#lg-modal1").modal();
+								console.log("vote ");
+								$this = $(this);
+								console.log($this);
+								var partyno = $this.data("partyno");
+								console.log(partyno);
+
+								$("#modalDetail").html("");
+								modalstr += "<img class='mx-auto rounded-circle' src='${pageContext.request.contextPath }/assets/img/team/1.jpg' alt=''>";
+								modalstr += "<h4>dma</h4>"
+								modalstr += "<p class='text-muted'>Lead Designer</p>"
+								console.log(modalstr);
+								$("#modalDetail").append();
+								modalstr = "";
+
+								$("#finalButton").on("click",function() {
+													console.log(partyno);
+													console.log(electionNo);
+													console.log(majorId);
+													console.log(studentId);
+													
+
+													$.ajax({
+														url : "${pageContext.request.contextPath }/votePage/voteMan",
+														type : "post",
+														data : {
+															studentId : studentId,
+															partyId : partyId,
+															electionNo : electionNo
+														},
+														dataType : "json",
+														success : function(success) {
+															console.log(success);
+															if(success == 1){
+																alert(" 투표가 완료되었습니다~. ")
+																window.location.href = "${pageContext.request.contextPath }/main";
+
+															}else{
+																alert(" 오류  ")
+																window.location.href = "${pageContext.request.contextPath }/main";
+
+															}
+														
+														},
+														error : function(XHR,status,error) {
+															console.error(status+ " : "+ error);
+														}
+													});
+													//원래받았던 파티넘버에 votes를 추가시키고 메인페이지로 넘겨버리자~ 
+												})
+							})
 							
 			})
+			
 	</script>
+	
+	<script type="text/javascript">
+	function acyncMovePage(url){
+        // ajax option
+        var ajaxOption = {
+                url : url,
+                async : true,
+                type : "POST",
+                dataType : "html",
+                cache : false
+        };
+        
+        $.ajax(ajaxOption).done(function(data){
+            // Contents 영역 삭제
+            $('#bodyContents').children().remove();
+            // Contents 영역 교체
+            $('#bodyContents').html(data);
+        });
+    }
+	
+ 
+	function candidateList(list, no){
+		var partyId = list.partyId;
+		console.log(partyId);
+		console.log(no);
+		no = no+1;
+		$.ajax({
+			url : "${pageContext.request.contextPath }/votePage/partyDetailList",
+			type : "post",
+			data : {
+				partyId : partyId
+			},
+			dataType : "json",
+			success : function(list2) {
+				console.log(list2.length);
+				console.log(list2);
 
+				voteList += "<div class='row'>"
+				voteList += "<div class='col-sm-6'>"
+				voteList += "<div class='container'>"
+				voteList += "<div class='row'>"
+				voteList += "<div class='col-lg-12 text-center'>"
+				voteList += "<h2 class='section-heading text-uppercase'>후보 "
+						+ no
+						+ "번</h2>"
+				voteList += "<h3 class='section-subheading text-muted'>"
+						+ list.partyName
+						+ "</h3>"
+				voteList += "</div>"
+				voteList += "</div>"
+				voteList += "	<div class='row'>"
+				voteList += "<div class='col-sm-6'>"
+				voteList += "<div class='team-member'>"
+				voteList += "<img class='mx-auto rounded-circle'src='${pageContext.request.contextPath }/assets/img/team/1.jpg'alt=''>"
+				voteList += "<h4>"
+						+ list2[0].roll
+						+ "</h4>"
+				voteList += "<p class='text-muted'>"
+						+ list2[0].studentId
+						+ "</p>"
+				voteList += "</div>"
+				voteList += "</div>"
+				voteList += "<div class='col-sm-6'>"
+				voteList += "<div class='team-member'>"
+				voteList += "<img class='mx-auto rounded-circle'src='${pageContext.request.contextPath }/assets/img/team/2.jpg'alt=''>"
+				voteList += "	<h4>"
+						+ list2[1].roll
+						+ "</h4>"
+				voteList += "<p class='text-muted'>"
+						+ list2[1].studentId
+						+ "</p>"
+				voteList += "</div>"
+				voteList += "</div>"
+				voteList += "</div>"
+				voteList += "<div class='row'>"
+				voteList += "<div class='col-lgs-8 mx-auto text-center'>"
+				voteList += "<p class='large text-muted'>"
+						+ "<"+list.collegeName+">"
+						+ list.collegeLine
+						+ "-"
+						+ list.collegeType
+						+ "  이러쿵 저러쿵 공약</p>"
+				voteList += "</div>"
+				voteList += "</div>"
+				voteList += "<div class='row'>"
+				//데이터 번호 넘겨줘야 모달창에서 띄워줄 수 있음 
+				voteList += "<button data-target=''#lg-modal/ data-toggle='modal' class='btn btn-warning' id='partyButton' data-partyno="+partyId+">선택하기</button>"
+				voteList += "</div>"
+				voteList += "</div>"
+				voteList += "</div>"
+				voteList += "</div>"
+
+				$("#selectParty").append(voteList);
+				voteList = "";
+			},
+			error : function(
+					XHR,
+					status,
+					error) {
+				console
+						.error(status
+								+ " : "
+								+ error);
+			}
+		});
+	}
+
+	</script>
 
 	<!-- Bootstrap core JavaScript -->
 	<script

@@ -85,10 +85,15 @@ public class VoteController {
 	@ResponseBody
 	@RequestMapping(value = "/voteMan" , method = RequestMethod.POST)
 	public int voteMan(@RequestParam("studentId") int studentId,
-						@RequestParam("partyId") int partyId) {
+						@RequestParam("partyId") int partyId,
+						@RequestParam("electionNo") int electionNo ) {
+		System.out.println( "vote me !!");
 		VoteVo vo = new VoteVo();
 		vo.setStudentId(studentId);
 		vo.setPartyId(partyId);
+		vo.setElectionNo(electionNo);
+		
+		System.out.println(vo.toString());
 		//이거 하기전에 이미 투표했는지 확인 할 수 있도록 만든다 
 		
 		if(service.voteMan(vo) == 1) {

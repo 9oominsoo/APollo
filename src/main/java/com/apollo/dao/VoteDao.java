@@ -33,7 +33,7 @@ public class VoteDao {
 	
 	//<!-- #투표하기  -->
 	public int voteMan(VoteVo vo) {
-		int vote = session.insert("votePage.vote", vo.getStudentId());
+		int vote = session.insert("votePage.vote", vo);
 		return vote;
 	}
 	// 투표 후 투표 여부 확인 할 수 있게 
