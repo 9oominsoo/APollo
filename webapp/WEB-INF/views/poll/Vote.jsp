@@ -159,7 +159,14 @@
 									});
 							$("#partyButton").on("click", function() {
 								$("#modalHeader").html("<h4 class='modal-title' id='myLargeModalLabel'>후보 "+partyId+"</h4>")
-
+								$("#modalDetail").html("");
+								modalstr += "<img class='mx-auto rounded-circle' src='${pageContext.request.contextPath }/assets/img/team/1.jpg' alt=''>";
+								modalstr += "<h4>dma</h4>"
+								modalstr += "<p class='text-muted'>Lead Designer</p>"
+								console.log(modalstr);
+								$("#modalDetail").append();
+								
+								
 								$("#lg-modal1").modal();
 								console.log("vote ");
 								$this = $(this);
@@ -167,12 +174,8 @@
 								var partyno = $this.data("partyno");
 								console.log(partyno);
 
-								$("#modalDetail").html("");
-								modalstr += "<img class='mx-auto rounded-circle' src='${pageContext.request.contextPath }/assets/img/team/1.jpg' alt=''>";
-								modalstr += "<h4>dma</h4>"
-								modalstr += "<p class='text-muted'>Lead Designer</p>"
-								console.log(modalstr);
-								$("#modalDetail").append();
+							
+								
 								modalstr = "";
 
 								$("#finalButton").on("click",function() {
