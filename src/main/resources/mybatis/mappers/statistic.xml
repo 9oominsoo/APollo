@@ -4,18 +4,43 @@
 <mapper namespace="statistic">
 	
 	<!-- 총학생 수  -->
-	<select id="" parameterType="" resultType="">
+	<select id="AllStudent" parameterType="VoteVo" resultType="int">
 		<![CDATA[
 			select count(*) from student where status = 'NORMAL' and majorid = #{majorId} 
 		]]>
 	</select>
 	
 	<!-- 파티마다 득표수 확인  -->
-	<select id="" parameterType="" resultType="">
+	<select id="statisticPercentOfParticular" parameterType="VoteVo" resultType="VoteVo">
 		<![CDATA[
 			select partyid , votes from party where majorid = #{majorId} and electionNo = #{electionNo} 
 		]]>
 	</select>
 	
+	
+	
 	<!--  각 메이저 별로 모든 학생 수 및 득표수를 뽑아 보자  -->
+	
+	<select id="searchParty" parameterType="VoteVo" resultType="VoteVo">
+		<![CDATA[
+		SELECT 	*
+		FROM 
+				PARTY P, 
+				MAJOR M 
+		WHERE 
+				P.MAJORID = M.MAJORID 
+				AND 
+				M.MAJORID = #{majorId}
+		]]>
+	</select>
+	
+	<select id="partyDetail" parameterType="VoteVo" resultType="VoteVo">
+		<![CDATA[
+			SELECT * FROM CANDIDATE 
+				WHERE 
+				PARTYID = (SELECT PARTYID FROM PARTY WHERE PARTYID = #{partyId})
+		]]>
+	</select>
+	
+	
 </mapper>

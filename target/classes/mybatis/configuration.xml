@@ -10,6 +10,7 @@
     <mappers>
         <mapper resource="mybatis/mappers/student.xml" />
         <mapper resource="mybatis/mappers/vote.xml" />
+        <mapper resource="mybatis/mappers/statistic.xml" />
     </mappers>
 </configuration>
  
