@@ -1,5 +1,6 @@
 package com.apollo.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,19 +16,41 @@ public class StatisticService {
 	@Autowired
 	private StatisticDao dao;
 	
-	public Map<VoteVo, Object> statisticPercent(VoteVo vo) {
+	public Map<String, Object> statisticPercent(VoteVo vo) {
 		
-		//전체 인원 수 
-		int All = dao.AllStudent(vo) ;
+		List<VoteVo> majorList = dao.AllMajor();
+		System.out.println(majorList.toString());
 		
-		Map<VoteVo, Object> map = null;
-		//부분 인원 수
-		List<VoteVo> list = dao.statisticPercentOfParticular(vo);
-		for(int i = 0 ; i < list.size(); i++) {
-			int particular = 0;
-			int statisticPercent = (All/particular);
-			map.put(list.get(i), statisticPercent);
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		// 메이저들 리스트 뽑기 
+		for(int majorInt = 0; majorInt < majorList.size() ;majorInt++) {
+			VoteVo forMajor = new VoteVo();
+			forMajor.setMajorId(majorList.get(majorInt).getMajorId());
+			forMajor.setElectionNo(vo.getElectionNo());
+			//각 메이저 별 전체 인원 수 
+			int All = dao.AllStudent(forMajor) ;
+			
+			System.out.println(All);
+			
+			//부분 인원 수
+			List<VoteVo> list = dao.searchParty(forMajor);
+			
+			for(int i = 0 ; i < list.size(); i++) {
+				int particular = list.get(i).getVotes();
+				System.out.println(list.get(i).getPartyId() +" is "+ particular);
+				double statisticPercent = (double)(particular)/(double)(All)*100 ;
+				System.out.println(statisticPercent);
+				int intStatisticPercent = (int)(statisticPercent);
+				list.get(i).setPercent(intStatisticPercent);
+				
+			}
+			String StringData = Integer.toString(forMajor.getMajorId());
+			System.out.println(list.toString());
+			map.put(StringData , list);
 		}
+		
+		System.out.println(map.toString());
 		
 		return map; 
 	}

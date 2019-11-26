@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,46 +39,19 @@
 	rel="stylesheet">
 </head>
 <body id="page-top">
-	<!-- Navigation -->
-	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-		<div class="container">
-			<a class="navbar-brand js-scroll-trigger" href="#page-top">아주 그냥
-				아주대학교</a>
-			<button class="navbar-toggler navbar-toggler-right" type="button"
-				data-toggle="collapse" data-target="#navbarResponsive"
-				aria-controls="navbarResponsive" aria-expanded="false"
-				aria-label="Toggle navigation">
-				Menu <i class="fas fa-bars"></i>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav text-uppercase ml-auto">
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#about">공약 다시 보기</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#team">후보군 선택하기</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#contact">약관</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	<!-- header -->
+	<c:import url="/WEB-INF/views/includes/navigation.jsp"></c:import>
 
-	<!-- Header -->
-	<header class="masthead">
-		<div class="container">
-			<div class="intro-text">
-				<div class="intro-lead-in">소중한 여러분의 한표</div>
-				<div class="intro-heading text-uppercase">여러분이 학교의 주인입니다~</div>
-				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"
-					href="#services">약관 확인 </a>
-			</div>
-		</div>
-	</header>
+	<!-- header -->
+	<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
+
 	
 	
 	
 					<!-- Project Card Example -->
-					<div class="card  mb-4">
+					<div class="  mb-4">
+					
+					
 						<div class="card-header py-3">
 							<h6 class="m-0 font-weight-bold text-primary">Projects</h6>
 						</div>
@@ -325,6 +300,8 @@
 		src="${pageContext.request.contextPath }/assets/js/demo/chart-area-demo.js"></script>
 	
 	<script type="text/javascript">
+	
+	
 	// Set new default font family and font color to mimic Bootstrap's default styling
 	Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 	Chart.defaults.global.defaultFontColor = '#858796';
@@ -360,6 +337,42 @@
 	    cutoutPercentage: 80,
 	  },
 	});
+	
+	var majorId = '123';
+	// 일렉션 넘버 고정값~
+	var electionNo = '2' ;
+	
+	
+	$.ajax({
+				url : "${pageContext.request.contextPath }/statisticPage/statisticPercent",
+				type : "post",
+				data : {
+					electionNo : electionNo
+				},
+				dataType : "json",
+				success : function(map) {
+					console.log(map);
+
+					var result = map
+					
+					console.log(map[123]);
+					
+					console.log(Object.keys(result).length);
+					
+					console.log(map.key(0));
+					console.log(map[123].length);
+					
+					
+					
+					
+					
+					
+				},
+				error : function(XHR, status, error) {
+					console.error(status + " : "
+							+ error);
+				}
+			});
 
 	</script>
 

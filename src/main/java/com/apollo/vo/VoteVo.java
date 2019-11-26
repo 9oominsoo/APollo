@@ -6,13 +6,16 @@ public class VoteVo {
 
 	public VoteVo() {
 	};
+	
+	
 
-	// 생성자 
-	public VoteVo(int studentId, int electionNo, Date voteDate, String electionName, Date startDate, Date endDate,
-			String status, String type, String roll, int repimo, int partyId, int majorId, String partyName, int votes,
-			String elected, String collegeName, String collegeType, String collegeLine, String majorName,
-			int enrollMent) {
+	
+	public VoteVo(int percent, int studentId, int electionNo, Date voteDate, String electionName, Date startDate,
+			Date endDate, String status, String type, String roll, int repimo, int partyId, int majorId,
+			String partyName, int votes, String elected, String collegeName, String collegeType, String collegeLine,
+			String majorName, int enrollMent) {
 		super();
+		this.percent = percent;
 		this.studentId = studentId;
 		this.electionNo = electionNo;
 		this.voteDate = voteDate;
@@ -35,6 +38,10 @@ public class VoteVo {
 		this.enrollMent = enrollMent;
 	}
 
+
+
+	private int percent;
+	
 	// APOLLO.VOTE
 	private int studentId;
 	private int electionNo;
@@ -225,14 +232,27 @@ public class VoteVo {
 		this.enrollMent = enrollMent;
 	}
 
+
+
+	public int getPercent() {
+		return percent;
+	}
+
+
+	public void setPercent(int percent) {
+		this.percent = percent;
+	}
+
+
+
 	@Override
 	public String toString() {
-		return "VoteVo [studentId=" + studentId + ", electionNo=" + electionNo + ", voteDate=" + voteDate
-				+ ", electionName=" + electionName + ", startDate=" + startDate + ", endDate=" + endDate + ", status="
-				+ status + ", type=" + type + ", roll=" + roll + ", repimo=" + repimo + ", partyId=" + partyId
-				+ ", majorId=" + majorId + ", partyName=" + partyName + ", votes=" + votes + ", elected=" + elected
-				+ ", collegeName=" + collegeName + ", collegeType=" + collegeType + ", collegeLine=" + collegeLine
-				+ ", majorName=" + majorName + ", enrollMent=" + enrollMent + "]";
+		return "VoteVo [percent=" + percent + ", studentId=" + studentId + ", electionNo=" + electionNo + ", voteDate="
+				+ voteDate + ", electionName=" + electionName + ", startDate=" + startDate + ", endDate=" + endDate
+				+ ", status=" + status + ", type=" + type + ", roll=" + roll + ", repimo=" + repimo + ", partyId="
+				+ partyId + ", majorId=" + majorId + ", partyName=" + partyName + ", votes=" + votes + ", elected="
+				+ elected + ", collegeName=" + collegeName + ", collegeType=" + collegeType + ", collegeLine="
+				+ collegeLine + ", majorName=" + majorName + ", enrollMent=" + enrollMent + "]";
 	}
 
 }

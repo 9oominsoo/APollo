@@ -14,6 +14,11 @@ public class StatisticDao {
 	@Autowired
 	private SqlSession session;
 	
+	public List<VoteVo> AllMajor(){
+		List<VoteVo> list = session.selectList("statistic.AllMajor");
+		return list;
+	}
+	
 	public int AllStudent(VoteVo vo) {
 		int count = session.selectOne("statistic.AllStudent", vo);
 		return count;
@@ -33,4 +38,6 @@ public class StatisticDao {
 		List<VoteVo> list = session.selectList("statistic.partyDetail", vo);
 		return list;
 	}
+	
+	
 }
