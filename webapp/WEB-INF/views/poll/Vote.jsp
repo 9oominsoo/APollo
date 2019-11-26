@@ -80,8 +80,7 @@
 								
 							</div>
 							<br> <br>
-							<button id="finalButton" data-target="#lg-modal" type="submit"
-								data-toggle="modal" class="btn  btn-warning">투표하기</button>
+							<button id="finalButton"  class="btn  btn-warning">투표하기</button>
 						</div>
 					</div>
 				</div>
@@ -131,9 +130,7 @@
 												
 											}
 										
-											
 										
-											
 
 										},
 										error : function(XHR, status, error) {
@@ -142,7 +139,7 @@
 										}
 							});
 							
-			})
+		})
 						
 			
 	</script>
@@ -233,18 +230,15 @@
 				voteList += "</div>"
 				voteList += "<div class='row'>"
 				//데이터 번호 넘겨줘야 모달창에서 띄워줄 수 있음 
-				voteList += "<button data-target=''#lg-modal/ data-toggle='modal' class='btn btn-warning' id='partyButton' data-partyno="+partyId+">선택하기</button>"
+				voteList += "<button class='btn btn-warning' id='partyButton"+partyId+"' data-partyno="+partyId+">선택하기</button>"
 				voteList += "</div>"
 				voteList += "</div>"
 				voteList += "</div>"
 				voteList += "</div>"
-
-
-
+				
 				$("#selectParty").append(voteList);	
 				console.log(voteList);
 				voteList ="";
-				
 				
 				
 			},
@@ -259,6 +253,12 @@
 			}
 		});
 
+		$("#partyButton1234").on("click", function() {
+			
+			console.log("ho");
+			
+		});
+		
 		$("#partyButton").on("click", function() {
 										$("#modalHeader").html("<h4 class='modal-title' id='myLargeModalLabel'>후보  "+list.partyName+"</h4>")
 										$("#modalDetail").html("");
@@ -283,7 +283,11 @@
 										
 										
 										
-										$("#lg-modal1").modal();
+										
+										
+										
+										
+										$("#lg-modal1").modal('show');
 										console.log("vote ");
 										$this = $(this);
 										console.log($this);
@@ -327,8 +331,8 @@
 																	console.error(status+ " : "+ error);
 																}
 															});
-														})
-									})
+											})
+					})
 		
 	}
 
