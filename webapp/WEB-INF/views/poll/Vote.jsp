@@ -88,17 +88,21 @@
 		</div>
 	</div>
 	<script type="text/javascript">
+	
+		//user 의 메이저 아이디를 가지고 오자
+		var studentId = '201520867';
+		var majorId = '123';
+		// 일렉션 넘버 고정값~
+		var electionNo = '2' ;
+		
+		modalstr = "";
+		voteList = "";
+		
 		$("document").ready(function() {
 							console.log('start javascript');
-							modalstr = "";
-							voteList = "";
 							
 							
-							//user 의 메이저 아이디를 가지고 오자
-							var studentId = '201520867';
-							var majorId = '123';
-							// 일렉션 넘버 고정값~
-							var electionNo = '2' ;
+						
 							
 							
 							$.ajax({
@@ -141,29 +145,7 @@
 							
 		})
 						
-			
-	</script>
-	
-	<script type="text/javascript">
-	function acyncMovePage(url){
-        // ajax option
-        var ajaxOption = {
-                url : url,
-                async : true,
-                type : "POST",
-                dataType : "html",
-                cache : false
-        };
-        
-        $.ajax(ajaxOption).done(function(data){
-            // Contents 영역 삭제
-            $('#bodyContents').children().remove();
-            // Contents 영역 교체
-            $('#bodyContents').html(data);
-        });
-    }
-	
- 
+			 
 	function candidateList(list, no){
 		var partyId = list.partyId;
 		console.log(partyId);
@@ -230,7 +212,7 @@
 				voteList += "</div>"
 				voteList += "<div class='row'>"
 				//데이터 번호 넘겨줘야 모달창에서 띄워줄 수 있음 
-				voteList += "<button class='btn btn-warning' id='partyButton"+partyId+"' data-partyno="+partyId+">선택하기</button>"
+				voteList += "<button data-target=''#lg-modal' data-toggle='modal' class='btn btn-warning' id='partyButton"+partyId+"' data-partyno="+partyId+">선택하기</button>"
 				voteList += "</div>"
 				voteList += "</div>"
 				voteList += "</div>"
@@ -240,6 +222,85 @@
 				console.log(voteList);
 				voteList ="";
 				
+				$("#partyButton"+partyId).on("click", function() {
+					console.log("hot"+partyId);
+					
+					$("#modalHeader").html("<h4 class='modal-title' id='myLargeModalLabel'>후보  "+list.partyName+"</h4>")
+					$("#modalDetail").html("");
+					
+					modalstr += 	"<div class='col-sm-6'>"
+					modalstr += 		"<div class='team-member'>"
+					modalstr +=				"<img class='mx-auto rounded-circle' src='${pageContext.request.contextPath }/assets/img/team/1.jpg' alt=''>"
+					modalstr +=				"<h4>Kay Garland</h4>"
+					modalstr +=				"<p class='text-muted'>Lead Designer</p>"
+					modalstr +=			"</div>"
+					modalstr +=		"</div>"
+					modalstr += 	"<div class='col-sm-6'>"
+					modalstr += 		"<div class='team-member'>"
+					modalstr +=				"<img class='mx-auto rounded-circle' src='${pageContext.request.contextPath }/assets/img/team/2.jpg' alt=''>"
+					modalstr +=				"<h4>Larry Parker</h4>"
+					modalstr +=			"<p class='text-muted'>Lead Marketer</p>"
+					modalstr +=			"</div>"
+					modalstr +=		"</div>"
+					
+					$("#modalDetail").html(modalstr);
+					
+					
+					
+					
+					
+					
+					
+					
+					$("#lg-modal1").modal('show');
+					console.log("vote ");
+					$this = $(this);
+					console.log($this);
+					var partyno = $this.data("partyno");
+					console.log(partyno);
+
+				
+					
+					modalstr = "";
+
+					$("#finalButton").on("click",function() {
+										console.log(partyno);
+										console.log(electionNo);
+										console.log(majorId);
+										console.log(studentId);
+										
+										
+										
+
+										$.ajax({
+											url : "${pageContext.request.contextPath }/votePage/voteMan",
+											type : "post",
+											data : {
+												studentId : studentId,
+												partyId : partyId,
+												electionNo : electionNo
+											},
+											dataType : "json",
+											success : function(success) {
+												console.log(success);
+												if(success == 1){
+													alert(" 투표가 완료되었습니다~. ")
+													window.location.href = "${pageContext.request.contextPath }/main";
+
+												}else{
+													alert(" 오류  ")
+													window.location.href = "${pageContext.request.contextPath }/main";
+
+												}
+											
+											},
+											error : function(XHR,status,error) {
+												console.error(status+ " : "+ error);
+											}
+										});
+						})
+						
+				});
 				
 			},
 			error : function(
@@ -252,90 +313,10 @@
 								+ error);
 			}
 		});
-
-		$("#partyButton1234").on("click", function() {
-			
-			console.log("ho");
-			
-		});
 		
-		$("#partyButton").on("click", function() {
-										$("#modalHeader").html("<h4 class='modal-title' id='myLargeModalLabel'>후보  "+list.partyName+"</h4>")
-										$("#modalDetail").html("");
-										
-										modalstr += 	"<div class='col-sm-6'>"
-										modalstr += 		"<div class='team-member'>"
-										modalstr +=				"<img class='mx-auto rounded-circle' src='${pageContext.request.contextPath }/assets/img/team/1.jpg' alt=''>"
-										modalstr +=				"<h4>Kay Garland</h4>"
-										modalstr +=				"<p class='text-muted'>Lead Designer</p>"
-										modalstr +=			"</div>"
-										modalstr +=		"</div>"
-										modalstr += 	"<div class='col-sm-6'>"
-										modalstr += 		"<div class='team-member'>"
-										modalstr +=				"<img class='mx-auto rounded-circle' src='${pageContext.request.contextPath }/assets/img/team/2.jpg' alt=''>"
-										modalstr +=				"<h4>Larry Parker</h4>"
-										modalstr +=			"<p class='text-muted'>Lead Marketer</p>"
-										modalstr +=			"</div>"
-										modalstr +=		"</div>"
-										
-										$("#modalDetail").html(modalstr);
-										
-										
-										
-										
-										
-										
-										
-										
-										$("#lg-modal1").modal('show');
-										console.log("vote ");
-										$this = $(this);
-										console.log($this);
-										var partyno = $this.data("partyno");
-										console.log(partyno);
-
-									
-										
-										modalstr = "";
-
-										$("#finalButton").on("click",function() {
-															console.log(partyno);
-															console.log(electionNo);
-															console.log(majorId);
-															console.log(studentId);
-															
-
-															$.ajax({
-																url : "${pageContext.request.contextPath }/votePage/voteMan",
-																type : "post",
-																data : {
-																	studentId : studentId,
-																	partyId : partyId,
-																	electionNo : electionNo
-																},
-																dataType : "json",
-																success : function(success) {
-																	console.log(success);
-																	if(success == 1){
-																		alert(" 투표가 완료되었습니다~. ")
-																		window.location.href = "${pageContext.request.contextPath }/main";
-
-																	}else{
-																		alert(" 오류  ")
-																		window.location.href = "${pageContext.request.contextPath }/main";
-
-																	}
-																
-																},
-																error : function(XHR,status,error) {
-																	console.error(status+ " : "+ error);
-																}
-															});
-											})
-					})
 		
+
 	}
-
 	</script>
 
 	<!-- Bootstrap core JavaScript -->
