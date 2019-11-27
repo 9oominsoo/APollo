@@ -134,7 +134,6 @@
 
 
 	
-	var majorId = '123';
 	// 일렉션 넘버 고정값~
 	var electionNo = '2' ;
 	
@@ -146,8 +145,15 @@
 		success : function(list) {
 			console.log(list);
 			
-			
-			
+			for(var j = 0; j < list.length ; j++ ){
+				console.log(list[j]);
+				
+				var majorId = list[j].majorId;
+				console.log(majorId);
+				
+				pie_barChart(majorId);
+				
+			}
 		},
 		error : function(XHR, status, error) {
 			console.error(status + " : "
@@ -155,133 +161,149 @@
 		}
 	});
 	
-	$.ajax({
-				url : "${pageContext.request.contextPath }/statisticPage/statisticPercent",
-				type : "post",
-				data : {
-					electionNo : electionNo,
-					majorId : majorId
-				},
-				dataType : "json",
-				success : function(list) {
-					console.log(list);
-					
-					
-					
-					barstr = "";
-					barstr += "<div class='col-lg-12 mb-4'>";
-					barstr += "<div class='card '>";
-					barstr += "	<div class='card-header py-3'>";
-					barstr += "		<h6 class='m-0 font-weight-bold text-primary'>"+majorId+"</h6>";
-					barstr += "	</div>";
-					barstr += "	<div class='card-body'>";
-					
-					for(var i = 0; i < list.length ; i++){
-					
-					barstr += "		<h4 class='small font-weight-bold'>Server Migration <span class='float-right'>"+list[i].percent+"%</span></h4>";
-					barstr += "		<div class='progress mb-4'>";
-					barstr += "			<div class='progress-bar bg-success' role='progressbar' style='width: "+list[i].percent+"%' aria-valuenow="+list[i].percent+" aria-valuemin='0' aria-valuemax='100'></div>";
-					barstr += "		</div>";
-					
-					}
-					barstr += "	</div>";
-					barstr += "	</div>";
-					barstr += "</div>";
-					$('#rateBarChart').append(barstr);
-					barstr = "";
+
+	function pie_barChart(majorId){
+		$.ajax({
+			url : "${pageContext.request.contextPath }/statisticPage/statisticPercent",
+			type : "post",
+			data : {
+				electionNo : electionNo,
+				majorId : majorId
+			},
+			dataType : "json",
+			success : function(map) {
+				console.log(map.list);
+				console.log(majorId);
+			
 				
-				},
-				error : function(XHR, status, error) {
-					console.error(status + " : "
-							+ error);
+				barstr = "";
+				barstr += "<div class='col-lg-12 mb-4'>";
+				barstr += "<div class='card '>";
+				barstr += "	<div class='card-header py-3'>";
+				barstr += "		<h6 class='m-0 font-weight-bold text-primary'>"+majorId+"</h6>";
+				barstr += "	</div>";
+				barstr += "	<div class='card-body'>";
+				if(map.list.length != 0){
+				for(var i = 0; i < map.list.length ; i++){
+				
+				barstr += "		<h4 class='small font-weight-bold'>Server Migration <span class='float-right'>"+map.list[i].percent+"%</span></h4>";
+				barstr += "		<div class='progress mb-4'>";
+				barstr += "			<div class='progress-bar bg-success' role='progressbar' style='width: "+map.list[i].percent+"%' aria-valuenow="+map.list[i].percent+" aria-valuemin='0' aria-valuemax='100'></div>";
+				barstr += "		</div>";
+				
 				}
-	});
+				barstr += "		<h4 class='small font-weight-bold'>Server Migration <span class='float-right'>"+map.abstention+"%</span></h4>";
+				barstr += "		<div class='progress mb-4'>";
+				barstr += "			<div class='progress-bar bg-success' role='progressbar' style='width: "+map.abstention+"%' aria-valuenow="+map.abstention+" aria-valuemin='0' aria-valuemax='100'></div>";
+				barstr += "		</div>";
+				}
+				barstr += "	</div>";
+				barstr += "	</div>";
+				barstr += "</div>";
+				$('#rateBarChart').append(barstr);
+				barstr = "";
+				
+				
+			
+			},
+			error : function(XHR, status, error) {
+				console.error(status + " : "
+						+ error);
+			}
+});
 
+// 이걸 major 별로 돌려야한다 ! 
+$.ajax({
+			url : "${pageContext.request.contextPath }/statisticPage/countRate",
+			type : "post",
+			data : {
+				electionNo : electionNo,
+				majorId : majorId
+			},
+			dataType : "json",
+			success : function(map) {
+				console.log(map);
+				
+
+				var result = map
+				console.log(Object.keys(result).length);
+				piestr ="";
+				piestr +=  "<div class='col-xl-4 col-lg-5 shadow'>";
+				piestr += "<div class='card-header py-3 d-flex flex-row align-items-center justify-content-between'>";
+				piestr += "	<h6 class='m-0 font-weight-bold text-primary'> "+majorId+" 공대 현재 투표 현황</h6>";
+				piestr += "</div>";
+				piestr += "<div class='card-body'>";
+				piestr += "	<div class='chart-pie pt-4 pb-2'>";
+				piestr += "		<canvas id='myPieChart"+majorId+"'></canvas>";
+				piestr += "	</div>";
+				piestr += "		<div class='mt-4 text-center small'>";
+				piestr += "			<span class='mr-2' style= 'color:#4e73df'> <i  class='fas fa-circle'></i>투표 </span> ";
+				piestr += "			<span class='mr-2' style= 'color:#FF0000'> <i  class='fas fa-circle'></i>미투표</span>";
+				piestr += "			<span class='mr-2' style= 'color:#D8D6D6'> <i  class='fas fa-circle'></i>무응답</span>";
+				piestr += "		</div>";
+				piestr += "	</div>";
+				piestr += "</div>";
+				
+				
+				$('#ratepieChart').append(piestr);
+				
+				//투표 
+				var vote = map.countRate;
+				
+				//미투표 
+				var notVote = map.allStudentOfMajor - map.countRate - map.studentNotNorMal;
+				
+				//무응답 
+				var noVote = map.studentNotNorMal;
+				
+				console.log(vote);
+				console.log(notVote);
+				console.log(noVote);
+				
+				// Pie Chart Example
+				var ctx = document.getElementById("myPieChart"+majorId);
+				var myPieChart1 = new Chart(ctx, {
+				  type: 'doughnut',
+				  data: {
+				    labels: [ "미투표","투표", "무응답"],
+				    datasets: [{
+				      data: [notVote, vote ,noVote],
+				      backgroundColor: [ '#FF0000','#4e73df', '#D8D6D6'],
+				      hoverBackgroundColor: [ '#F38383' ,'#B4BAFA', '#666565'],
+				      hoverBorderColor: "rgba(234, 236, 244, 1)",
+				    }],
+				    
+				    
+				  },
+				  options: {
+				    maintainAspectRatio: false,
+				    tooltips: {
+				      backgroundColor: "rgb(255,255,255)",
+				      bodyFontColor: "#858796",
+				      borderColor: '#dddfeb',
+				      borderWidth: 1,
+				      xPadding: 15,
+				      yPadding: 15,
+				      displayColors: false,
+				      caretPadding: 10,
+				    },
+				    legend: {
+				      display: false
+				    },
+				    cutoutPercentage: 80,
+				  },
+				});
+				
+				
+			},
+			error : function(XHR, status, error) {
+				console.error(status + " : "
+						+ error);
+			}
+		});
+
+	}
 	
-	// 이걸 major 별로 돌려야한다 ! 
-	$.ajax({
-				url : "${pageContext.request.contextPath }/statisticPage/countRate",
-				type : "post",
-				data : {
-					electionNo : electionNo,
-					majorId : majorId
-				},
-				dataType : "json",
-				success : function(map) {
-					console.log(map);
-					
-
-					var result = map
-					console.log(Object.keys(result).length);
-					piestr ="";
-					piestr +=  "<div class='col-xl-4 col-lg-5 shadow'>";
-					piestr += "<div class='card-header py-3 d-flex flex-row align-items-center justify-content-between'>";
-					piestr += "	<h6 class='m-0 font-weight-bold text-primary'> "+majorId+" 공대 현재 투표 현황</h6>";
-					piestr += "</div>";
-					piestr += "<div class='card-body'>";
-					piestr += "	<div class='chart-pie pt-4 pb-2'>";
-					piestr += "		<canvas id='myPieChart"+majorId+"'></canvas>";
-					piestr += "	</div>";
-					piestr += "		<div class='mt-4 text-center small'>";
-					piestr += "			<span class='mr-2' style= 'color:#4e73df'> <i  class='fas fa-circle'></i>투표 </span> ";
-					piestr += "			<span class='mr-2' style= 'color:#FF0000'> <i  class='fas fa-circle'></i>미투표</span>";
-					piestr += "			<span class='mr-2' style= 'color:#D8D6D6'> <i  class='fas fa-circle'></i>무응답</span>";
-					piestr += "		</div>";
-					piestr += "	</div>";
-					piestr += "</div>";
-					
-					
-					$('#ratepieChart').append(piestr);
-					
-					var vote = map.countRate;
-					var notVote = map.allStudentOfMajor - map.countRate - map.studentNotNorMal;
-					var noVote = map.studentNotNorMal;
-					
-					console.log(vote);
-					console.log(notVote);
-					console.log(noVote);
-					
-					// Pie Chart Example
-					var ctx = document.getElementById("myPieChart"+majorId);
-					var myPieChart1 = new Chart(ctx, {
-					  type: 'doughnut',
-					  data: {
-					    labels: [ "미투표","투표", "무응답"],
-					    datasets: [{
-					      data: [notVote, vote ,noVote],
-					      backgroundColor: [ '#FF0000','#4e73df', '#D8D6D6'],
-					      hoverBackgroundColor: [ '#F38383' ,'#B4BAFA', '#666565'],
-					      hoverBorderColor: "rgba(234, 236, 244, 1)",
-					    }],
-					    
-					    
-					  },
-					  options: {
-					    maintainAspectRatio: false,
-					    tooltips: {
-					      backgroundColor: "rgb(255,255,255)",
-					      bodyFontColor: "#858796",
-					      borderColor: '#dddfeb',
-					      borderWidth: 1,
-					      xPadding: 15,
-					      yPadding: 15,
-					      displayColors: false,
-					      caretPadding: 10,
-					    },
-					    legend: {
-					      display: false
-					    },
-					    cutoutPercentage: 80,
-					  },
-					});
-					
-					
-				},
-				error : function(XHR, status, error) {
-					console.error(status + " : "
-							+ error);
-				}
-			});
 	</script>
 
 

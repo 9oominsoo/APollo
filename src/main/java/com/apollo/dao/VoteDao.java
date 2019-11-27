@@ -23,6 +23,7 @@ public class VoteDao {
 		return list;
 	}
 	
+	
 	//<!-- #PARTY 상세보기  -->
 	// 후보군들 선택 
 	public List<VoteVo> partyDetailList(VoteVo vo){

@@ -14,7 +14,6 @@
 	<select id="countRating" parameterType="VoteVo" resultType="int">
 		<![CDATA[
 		select count(*) from student stu, vote vo where stu.studentid = vo.studentid and stu.majorid = #{majorId} and electionNo = #{electionNo} 
-	
 		]]>
 	</select>
 

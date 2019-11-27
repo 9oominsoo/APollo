@@ -102,4 +102,17 @@ public class VoteController {
 		//경고창과 함께 메인페이지로 이동 
 		return 0;
 	}
+	
+	@ResponseBody
+	@RequestMapping("/abstentionButton")
+	public int abstentionButton(@RequestParam("studentId") int studentId,
+								@RequestParam("electionNo") int electionNo) {
+		System.out.println("abstentionButton controller start ");
+		VoteVo vo = new VoteVo();
+		vo.setStudentId(studentId);
+		vo.setElectionNo(electionNo);
+		
+		return service.abstentionButton(vo);
+		
+	}
 }

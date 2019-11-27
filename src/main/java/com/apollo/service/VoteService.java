@@ -34,6 +34,7 @@ public class VoteService {
 		//후보자 득표수 올려주기 
 		System.out.println("he is not already vote");
 		int updateVotes = dao.updateVotes(vo);
+		
 		System.out.println(updateVotes+" is updateVotes");
 		if(updateVotes == 1)
 		// vote 에 추가 ~ 
@@ -44,4 +45,11 @@ public class VoteService {
 		return 0;
 	}
 	
+	public int abstentionButton(VoteVo vo) {
+		if( dao.confirmVote(vo) == 0) {
+		
+		return dao.voteMan(vo);
+		}
+		return 0;
+	}
 }

@@ -16,14 +16,17 @@ public class StatisticService {
 	@Autowired
 	private StatisticDao dao;
 	
-	public List<VoteVo> statisticPercent(VoteVo vo) {
+	public Map<String, Object> statisticPercent(VoteVo vo) {
 		
-		List<VoteVo> majorList = dao.AllMajor();
-		System.out.println(majorList.toString());
-		
-		
+			List<VoteVo> majorList = dao.AllMajor();
+			System.out.println(majorList.toString());
+			
+			Map<String, Object> map = new HashMap<String, Object>();
+			
 			int All = dao.AllStudent(vo) ;
 			
+			int countRating = dao.countRate(vo);
+			double abstention = countRating;
 			//부분 인원 수
 			List<VoteVo> list = dao.searchParty(vo);
 			
@@ -34,13 +37,14 @@ public class StatisticService {
 				System.out.println(statisticPercent);
 				int intStatisticPercent = (int)(statisticPercent);
 				list.get(i).setPercent(intStatisticPercent);
-				
+				abstention = abstention - particular;
 			}
-			
+			abstention = abstention/(double)(All)*100;
+			System.out.println(abstention);
 			System.out.println(list.toString());
-		
-		
-		return list; 
+			map.put("list", list);
+			map.put("abstention", abstention);
+		return map; 
 	}
 	
 	public List<VoteVo> majorList(VoteVo vo){
@@ -62,7 +66,6 @@ public class StatisticService {
 	}
 	
 	public List<VoteVo> statisticList(VoteVo vo){
-		
 		
 		List<VoteVo> list = null; 
 		

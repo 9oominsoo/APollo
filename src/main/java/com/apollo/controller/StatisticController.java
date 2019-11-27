@@ -35,7 +35,7 @@ public class StatisticController {
 	
 	@ResponseBody
 	@RequestMapping("/statisticPercent")
-	public List<VoteVo> statisticPercent(
+	public Map<String, Object> statisticPercent(
 									@RequestParam("electionNo") int electionNo,
 									@RequestParam("majorId") int majorId) {
 		System.out.println("statisticPercent page start...");
@@ -43,10 +43,10 @@ public class StatisticController {
 		vo.setElectionNo(electionNo);
 		vo.setMajorId(majorId);
 		
-		List<VoteVo> list = service.statisticPercent(vo);
+		Map<String, Object> map = service.statisticPercent(vo);
 		System.out.println("result in controller");
-		System.out.println(list.toString());
-		return list;
+		System.out.println(map.toString());
+		return map;
 	}
 	
 	@RequestMapping("/statisticList")
