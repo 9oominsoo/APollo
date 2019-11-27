@@ -27,22 +27,45 @@ public class StatisticController {
 	}
 	
 	@ResponseBody
+	@RequestMapping("/AllMajor")
+	public List<VoteVo> AllMajor(){
+		
+		return service.AllMajor();
+	}
+	
+	@ResponseBody
 	@RequestMapping("/statisticPercent")
-	public Map<String, Object> statisticPercent(
-									@RequestParam("electionNo") int electionNo) {
+	public List<VoteVo> statisticPercent(
+									@RequestParam("electionNo") int electionNo,
+									@RequestParam("majorId") int majorId) {
 		System.out.println("statisticPercent page start...");
 		VoteVo vo = new VoteVo();
 		vo.setElectionNo(electionNo);
+		vo.setMajorId(majorId);
 		
-		Map<String, Object> map = service.statisticPercent(vo);
+		List<VoteVo> list = service.statisticPercent(vo);
 		System.out.println("result in controller");
-		System.out.println(map.toString());
-		return map;
+		System.out.println(list.toString());
+		return list;
 	}
 	
 	@RequestMapping("/statisticList")
 	public String statisticList() {
 		System.out.println("statisticList start ...");
 		return "";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/countRate")
+	public Map<String, Object> countRate(
+										@RequestParam("electionNo") int electionNo,
+										@RequestParam("majorId") int majorId){
+		System.out.println("start count Rating");
+		VoteVo vo = new VoteVo();
+		vo.setMajorId(majorId);
+		vo.setElectionNo(electionNo);
+		Map<String, Object> map = service.countRate(vo);
+		
+		return map;
 	}
 }

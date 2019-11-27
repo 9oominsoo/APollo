@@ -48,185 +48,11 @@
 	
 	
 	
-					<!-- Project Card Example -->
-					<div class="  mb-4">
+	<div id = "rateBarChart" class = "row">
+	</div>				
 					
-					
-						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary">Projects</h6>
-						</div>
-						<div class="card-body">
-							<h4 class="small font-weight-bold">
-								Server Migration <span class="float-right">60%</span>
-							</h4>
-							<div class="progress mb-4">
-								<div class="progress-bar bg-danger" role="progressbar"
-									style="width: 60%" aria-valuenow="60" aria-valuemin="0"
-									aria-valuemax="100"></div>
-							</div>
-							<h4 class="small font-weight-bold">
-								Sales Tracking <span class="float-right">40%</span>
-							</h4>
-							<div class="progress mb-4">
-								<div class="progress-bar bg-warning" role="progressbar"
-									style="width: 40%" aria-valuenow="40" aria-valuemin="0"
-									aria-valuemax="100"></div>
-							</div>
-							<h4 class="small font-weight-bold">
-								Customer Database <span class="float-right">60%</span>
-							</h4>
-							<div class="progress mb-4">
-								<div class="progress-bar" role="progressbar" style="width: 60%"
-									aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="card mb-4">
-						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary">Projects</h6>
-						</div>
-						<div class="card-body">
-							<h4 class="small font-weight-bold">
-								Server Migration <span class="float-right">60%</span>
-							</h4>
-							<div class="progress mb-4">
-								<div class="progress-bar bg-danger" role="progressbar"
-									style="width: 60%" aria-valuenow="60" aria-valuemin="0"
-									aria-valuemax="100"></div>
-							</div>
-							<h4 class="small font-weight-bold">
-								Sales Tracking <span class="float-right">40%</span>
-							</h4>
-							<div class="progress mb-4">
-								<div class="progress-bar bg-warning" role="progressbar"
-									style="width: 40%" aria-valuenow="40" aria-valuemin="0"
-									aria-valuemax="100"></div>
-							</div>
-							<h4 class="small font-weight-bold">
-								Customer Database <span class="float-right">60%</span>
-							</h4>
-							<div class="progress mb-4">
-								<div class="progress-bar" role="progressbar" style="width: 60%"
-									aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-						</div>
-					</div>
+	<div id="ratepieChart"class="row" style="padding-left: 30px; padding-right: 20px;">
 
-	<div class="row" style="padding-left: 30px; padding-right: 20px;">
-
-		<!-- Pie Chart -->
-		<div class="col-xl-4 col-lg-5 shadow">
-				<!-- Card Header - Dropdown -->
-				<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-					<h6 class="m-0 font-weight-bold text-primary"> 00 공대 현재 투표 현황</h6>
-					<div class="dropdown no-arrow">
-						<a class="dropdown-toggle" href="#" role="button"
-							id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> <i
-							class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-						</a>
-						<div
-							class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-							aria-labelledby="dropdownMenuLink">
-							<div class="dropdown-header">00 공대</div>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">00공학과 </a> <a
-								class="dropdown-item" href="#">00공학과 </a> <a
-								class="dropdown-item" href="#">00공학과 </a>
-						</div>
-					</div>
-				</div>
-				<!-- Card Body -->
-				<div class="card-body">
-					<div class="chart-pie pt-4 pb-2">
-						<canvas id="myPieChart"></canvas>
-					</div>
-					<div class="mt-4 text-center small">
-						<span class="mr-2"> <i class="fas fa-circle text-primary"></i>
-							후보 1번
-						</span> <span class="mr-2"> <i class="fas fa-circle text-success"></i>
-							후보 2번
-						</span> <span class="mr-2"> <i class="fas fa-circle text-info"></i>
-							후보 3번
-						</span>
-					</div>
-				</div>
-		</div>
-		<div class="col-xl-4 col-lg-5 shadow">
-				<!-- Card Header - Dropdown -->
-				<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-					<h6 class="m-0 font-weight-bold text-primary"> 00 공대 현재 투표 현황</h6>
-					<div class="dropdown no-arrow">
-						<a class="dropdown-toggle" href="#" role="button"
-							id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> <i
-							class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-						</a>
-						<div
-							class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-							aria-labelledby="dropdownMenuLink">
-							<div class="dropdown-header">00 공대</div>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">00공학과 </a> <a
-								class="dropdown-item" href="#">00공학과 </a> <a
-								class="dropdown-item" href="#">00공학과 </a>
-						</div>
-					</div>
-				</div>
-				<!-- Card Body -->
-				<div class="card-body">
-					<div class="chart-pie pt-4 pb-2">
-						<canvas id="myPieChart"></canvas>
-					</div>
-					<div class="mt-4 text-center small">
-						<span class="mr-2"> <i class="fas fa-circle text-primary"></i>
-							후보 1번
-						</span> <span class="mr-2"> <i class="fas fa-circle text-success"></i>
-							후보 2번
-						</span> <span class="mr-2"> <i class="fas fa-circle text-info"></i>
-							후보 3번
-						</span>
-					</div>
-				</div>
-		</div>
-		<div class="col-xl-4 col-lg-5 shadow">
-				<!-- Card Header - Dropdown -->
-				<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-					<h6 class="m-0 font-weight-bold text-primary"> 00 공대 현재 투표 현황</h6>
-					<div class="dropdown no-arrow">
-						<a class="dropdown-toggle" href="#" role="button"
-							id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> <i
-							class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-						</a>
-						<div
-							class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-							aria-labelledby="dropdownMenuLink">
-							<div class="dropdown-header">00 공대</div>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">00공학과 </a> <a
-								class="dropdown-item" href="#">00공학과 </a> <a
-								class="dropdown-item" href="#">00공학과 </a>
-						</div>
-					</div>
-				</div>
-				<!-- Card Body -->
-				<div class="card-body">
-					<div class="chart-pie pt-4 pb-2">
-						<canvas id="myPieChart"></canvas>
-					</div>
-					<div class="mt-4 text-center small">
-						<span class="mr-2"> <i class="fas fa-circle text-primary"></i>
-							후보 1번
-						</span> <span class="mr-2"> <i class="fas fa-circle text-success"></i>
-							후보 2번
-						</span> <span class="mr-2"> <i class="fas fa-circle text-info"></i>
-							후보 3번
-						</span>
-					</div>
-				</div>
-		</div>
 	</div>
 	
 	  <!-- Footer -->
@@ -306,37 +132,7 @@
 	Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 	Chart.defaults.global.defaultFontColor = '#858796';
 
-	// Pie Chart Example
-	var ctx = document.getElementById("myPieChart");
-	var myPieChart = new Chart(ctx, {
-	  type: 'doughnut',
-	  data: {
-	    labels: ["Direct", "Referral", "Social"],
-	    datasets: [{
-	      data: [55, 30, 15],
-	      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
-	      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
-	      hoverBorderColor: "rgba(234, 236, 244, 1)",
-	    }],
-	  },
-	  options: {
-	    maintainAspectRatio: false,
-	    tooltips: {
-	      backgroundColor: "rgb(255,255,255)",
-	      bodyFontColor: "#858796",
-	      borderColor: '#dddfeb',
-	      borderWidth: 1,
-	      xPadding: 15,
-	      yPadding: 15,
-	      displayColors: false,
-	      caretPadding: 10,
-	    },
-	    legend: {
-	      display: false
-	    },
-	    cutoutPercentage: 80,
-	  },
-	});
+
 	
 	var majorId = '123';
 	// 일렉션 넘버 고정값~
@@ -344,27 +140,140 @@
 	
 	
 	$.ajax({
+		url : "${pageContext.request.contextPath }/statisticPage/AllMajor",
+		type : "post",
+		dataType : "json",
+		success : function(list) {
+			console.log(list);
+			
+			
+			
+		},
+		error : function(XHR, status, error) {
+			console.error(status + " : "
+					+ error);
+		}
+	});
+	
+	$.ajax({
 				url : "${pageContext.request.contextPath }/statisticPage/statisticPercent",
 				type : "post",
 				data : {
-					electionNo : electionNo
+					electionNo : electionNo,
+					majorId : majorId
+				},
+				dataType : "json",
+				success : function(list) {
+					console.log(list);
+					
+					
+					
+					barstr = "";
+					barstr += "<div class='col-lg-12 mb-4'>";
+					barstr += "<div class='card '>";
+					barstr += "	<div class='card-header py-3'>";
+					barstr += "		<h6 class='m-0 font-weight-bold text-primary'>"+majorId+"</h6>";
+					barstr += "	</div>";
+					barstr += "	<div class='card-body'>";
+					
+					for(var i = 0; i < list.length ; i++){
+					
+					barstr += "		<h4 class='small font-weight-bold'>Server Migration <span class='float-right'>"+list[i].percent+"%</span></h4>";
+					barstr += "		<div class='progress mb-4'>";
+					barstr += "			<div class='progress-bar bg-success' role='progressbar' style='width: "+list[i].percent+"%' aria-valuenow="+list[i].percent+" aria-valuemin='0' aria-valuemax='100'></div>";
+					barstr += "		</div>";
+					
+					}
+					barstr += "	</div>";
+					barstr += "	</div>";
+					barstr += "</div>";
+					$('#rateBarChart').append(barstr);
+					barstr = "";
+				
+				},
+				error : function(XHR, status, error) {
+					console.error(status + " : "
+							+ error);
+				}
+	});
+
+	
+	// 이걸 major 별로 돌려야한다 ! 
+	$.ajax({
+				url : "${pageContext.request.contextPath }/statisticPage/countRate",
+				type : "post",
+				data : {
+					electionNo : electionNo,
+					majorId : majorId
 				},
 				dataType : "json",
 				success : function(map) {
 					console.log(map);
+					
 
 					var result = map
-					
-					console.log(map[123]);
-					
 					console.log(Object.keys(result).length);
+					piestr ="";
+					piestr +=  "<div class='col-xl-4 col-lg-5 shadow'>";
+					piestr += "<div class='card-header py-3 d-flex flex-row align-items-center justify-content-between'>";
+					piestr += "	<h6 class='m-0 font-weight-bold text-primary'> "+majorId+" 공대 현재 투표 현황</h6>";
+					piestr += "</div>";
+					piestr += "<div class='card-body'>";
+					piestr += "	<div class='chart-pie pt-4 pb-2'>";
+					piestr += "		<canvas id='myPieChart"+majorId+"'></canvas>";
+					piestr += "	</div>";
+					piestr += "		<div class='mt-4 text-center small'>";
+					piestr += "			<span class='mr-2' style= 'color:#4e73df'> <i  class='fas fa-circle'></i>투표 </span> ";
+					piestr += "			<span class='mr-2' style= 'color:#FF0000'> <i  class='fas fa-circle'></i>미투표</span>";
+					piestr += "			<span class='mr-2' style= 'color:#D8D6D6'> <i  class='fas fa-circle'></i>무응답</span>";
+					piestr += "		</div>";
+					piestr += "	</div>";
+					piestr += "</div>";
 					
-					console.log(map.key(0));
-					console.log(map[123].length);
 					
+					$('#ratepieChart').append(piestr);
 					
+					var vote = map.countRate;
+					var notVote = map.allStudentOfMajor - map.countRate - map.studentNotNorMal;
+					var noVote = map.studentNotNorMal;
 					
+					console.log(vote);
+					console.log(notVote);
+					console.log(noVote);
 					
+					// Pie Chart Example
+					var ctx = document.getElementById("myPieChart"+majorId);
+					var myPieChart1 = new Chart(ctx, {
+					  type: 'doughnut',
+					  data: {
+					    labels: [ "미투표","투표", "무응답"],
+					    datasets: [{
+					      data: [notVote, vote ,noVote],
+					      backgroundColor: [ '#FF0000','#4e73df', '#D8D6D6'],
+					      hoverBackgroundColor: [ '#F38383' ,'#B4BAFA', '#666565'],
+					      hoverBorderColor: "rgba(234, 236, 244, 1)",
+					    }],
+					    
+					    
+					  },
+					  options: {
+					    maintainAspectRatio: false,
+					    tooltips: {
+					      backgroundColor: "rgb(255,255,255)",
+					      bodyFontColor: "#858796",
+					      borderColor: '#dddfeb',
+					      borderWidth: 1,
+					      xPadding: 15,
+					      yPadding: 15,
+					      displayColors: false,
+					      caretPadding: 10,
+					    },
+					    legend: {
+					      display: false
+					    },
+					    cutoutPercentage: 80,
+					  },
+					});
 					
 					
 				},
@@ -373,7 +282,6 @@
 							+ error);
 				}
 			});
-
 	</script>
 
 

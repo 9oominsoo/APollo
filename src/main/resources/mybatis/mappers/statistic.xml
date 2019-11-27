@@ -9,9 +9,23 @@
 			select * from major
 		]]>
 	</select>
-
 	
+	<!-- 투표를 위한 인원수  -->
+	<select id="countRating" parameterType="VoteVo" resultType="int">
+		<![CDATA[
+		select count(*) from student stu, vote vo where stu.studentid = vo.studentid and stu.majorid = #{majorId} and electionNo = #{electionNo} 
+	
+		]]>
+	</select>
+
 	<!-- 총학생 수  -->
+	<select id="AllStudentNotNormal" parameterType="VoteVo" resultType="int">
+		<![CDATA[
+			select count(*) from student where majorid = #{majorId} 
+		]]>
+	</select>
+	
+	<!-- 휴학생을 제외한 총학생 수  -->
 	<select id="AllStudent" parameterType="VoteVo" resultType="int">
 		<![CDATA[
 			select count(*) from student where status = 'NORMAL' and majorid = #{majorId} 
@@ -24,8 +38,6 @@
 			select partyid , votes from party where majorid = #{majorId} and electionNo = #{electionNo} 
 		]]>
 	</select>
-	
-	
 	
 	<!--  각 메이저 별로 모든 학생 수 및 득표수를 뽑아 보자  -->
 	

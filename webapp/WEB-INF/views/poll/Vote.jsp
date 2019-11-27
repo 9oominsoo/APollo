@@ -102,9 +102,6 @@
 							console.log('start javascript');
 							
 							
-						
-							
-							
 							$.ajax({
 										url : "${pageContext.request.contextPath }/votePage/searchParty",
 										type : "post",
@@ -133,7 +130,6 @@
 												candidateList(list[i], i);
 												
 											}
-										
 										
 
 										},
@@ -314,8 +310,6 @@
 			}
 		});
 		
-		
-
 	}
 	</script>
 

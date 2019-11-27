@@ -16,25 +16,16 @@ public class StatisticService {
 	@Autowired
 	private StatisticDao dao;
 	
-	public Map<String, Object> statisticPercent(VoteVo vo) {
+	public List<VoteVo> statisticPercent(VoteVo vo) {
 		
 		List<VoteVo> majorList = dao.AllMajor();
 		System.out.println(majorList.toString());
 		
-		Map<String, Object> map = new HashMap<String, Object>();
 		
-		// 메이저들 리스트 뽑기 
-		for(int majorInt = 0; majorInt < majorList.size() ;majorInt++) {
-			VoteVo forMajor = new VoteVo();
-			forMajor.setMajorId(majorList.get(majorInt).getMajorId());
-			forMajor.setElectionNo(vo.getElectionNo());
-			//각 메이저 별 전체 인원 수 
-			int All = dao.AllStudent(forMajor) ;
-			
-			System.out.println(All);
+			int All = dao.AllStudent(vo) ;
 			
 			//부분 인원 수
-			List<VoteVo> list = dao.searchParty(forMajor);
+			List<VoteVo> list = dao.searchParty(vo);
 			
 			for(int i = 0 ; i < list.size(); i++) {
 				int particular = list.get(i).getVotes();
@@ -45,14 +36,29 @@ public class StatisticService {
 				list.get(i).setPercent(intStatisticPercent);
 				
 			}
-			String StringData = Integer.toString(forMajor.getMajorId());
+			
 			System.out.println(list.toString());
-			map.put(StringData , list);
-		}
 		
-		System.out.println(map.toString());
 		
-		return map; 
+		return list; 
+	}
+	
+	public List<VoteVo> majorList(VoteVo vo){
+		
+		List<VoteVo> majorList = dao.AllMajor();
+		return majorList;
+	}
+	
+	public Map<String, Object> countRate(VoteVo vo) {
+		int AllStu = dao.AllStudent(vo);
+		int studentNotNorMal = dao.AllStudentREAL(vo) - AllStu;
+		int count = dao.countRate(vo);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("allStudentOfMajor", AllStu);
+		map.put("countRate", count);
+		map.put("studentNotNorMal", studentNotNorMal);
+		
+		return map;
 	}
 	
 	public List<VoteVo> statisticList(VoteVo vo){
@@ -61,5 +67,10 @@ public class StatisticService {
 		List<VoteVo> list = null; 
 		
 		return list; 
+	}
+	
+	public List<VoteVo> AllMajor(){
+		List<VoteVo> list = dao.AllMajor();
+		return list;
 	}
 }
