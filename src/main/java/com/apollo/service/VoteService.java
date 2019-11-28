@@ -16,18 +16,21 @@ public class VoteService {
 	
 	//파티안에 디테일 리스트 
 	public List<VoteVo> getParty(VoteVo vo) {
+		
 		List<VoteVo> list = dao.partyDetailList(vo);
+		
 		return list;
+		
 	}
 	
 	public List<VoteVo> partyList(VoteVo vo){
 		
 		List<VoteVo> list = dao.getParty(vo);
+		System.out.println(list.toString());
 		return list;
 	}
 	
 	public int voteMan(VoteVo vo) {
-		
 		//투표자가 투표 안했는지 확인 설정 
 		
 		if( dao.confirmVote(vo) == 0) {

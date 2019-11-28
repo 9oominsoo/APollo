@@ -147,11 +147,11 @@
 			
 			for(var j = 0; j < list.length ; j++ ){
 				console.log(list[j]);
-				
+				var majorName = list[j].majorName;
 				var majorId = list[j].majorId;
 				console.log(majorId);
-				
-				pie_barChart(majorId);
+				console.log(majorName);
+				pie_barChart(majorId, majorName);
 				
 			}
 		},
@@ -162,7 +162,7 @@
 	});
 	
 
-	function pie_barChart(majorId){
+	function pie_barChart(majorId, majorName){
 		$.ajax({
 			url : "${pageContext.request.contextPath }/statisticPage/statisticPercent",
 			type : "post",
@@ -180,19 +180,19 @@
 				barstr += "<div class='col-lg-12 mb-4'>";
 				barstr += "<div class='card '>";
 				barstr += "	<div class='card-header py-3'>";
-				barstr += "		<h6 class='m-0 font-weight-bold text-primary'>"+majorId+"</h6>";
+				barstr += "		<h6 class='m-0 font-weight-bold text-primary'>"+majorName+"학과 </h6>";
 				barstr += "	</div>";
 				barstr += "	<div class='card-body'>";
 				if(map.list.length != 0){
 				for(var i = 0; i < map.list.length ; i++){
 				
-				barstr += "		<h4 class='small font-weight-bold'>Server Migration <span class='float-right'>"+map.list[i].percent+"%</span></h4>";
+				barstr += "		<h4 class='small font-weight-bold'>"+map.list[i].partyName+" <span class='float-right'>"+map.list[i].percent+"%</span></h4>";
 				barstr += "		<div class='progress mb-4'>";
 				barstr += "			<div class='progress-bar bg-success' role='progressbar' style='width: "+map.list[i].percent+"%' aria-valuenow="+map.list[i].percent+" aria-valuemin='0' aria-valuemax='100'></div>";
 				barstr += "		</div>";
 				
 				}
-				barstr += "		<h4 class='small font-weight-bold'>Server Migration <span class='float-right'>"+map.abstention+"%</span></h4>";
+				barstr += "		<h4 class='small font-weight-bold'> 기권표 <span class='float-right'>"+map.abstention+"%</span></h4>";
 				barstr += "		<div class='progress mb-4'>";
 				barstr += "			<div class='progress-bar bg-success' role='progressbar' style='width: "+map.abstention+"%' aria-valuenow="+map.abstention+" aria-valuemin='0' aria-valuemax='100'></div>";
 				barstr += "		</div>";
@@ -230,7 +230,7 @@ $.ajax({
 				piestr ="";
 				piestr +=  "<div class='col-xl-4 col-lg-5 shadow'>";
 				piestr += "<div class='card-header py-3 d-flex flex-row align-items-center justify-content-between'>";
-				piestr += "	<h6 class='m-0 font-weight-bold text-primary'> "+majorId+" 공대 현재 투표 현황</h6>";
+				piestr += "	<h6 class='m-0 font-weight-bold text-primary'>"+majorName+"학과</h6>";
 				piestr += "</div>";
 				piestr += "<div class='card-body'>";
 				piestr += "	<div class='chart-pie pt-4 pb-2'>";

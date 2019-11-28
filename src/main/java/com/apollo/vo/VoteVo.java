@@ -9,11 +9,12 @@ public class VoteVo {
 	
 	
 
-	
+
+
 	public VoteVo(int percent, int studentId, int electionNo, Date voteDate, String electionName, Date startDate,
-			Date endDate, String status, String type, String roll, int repimo, int partyId, int majorId,
-			String partyName, int votes, String elected, String collegeName, String collegeType, String collegeLine,
-			String majorName, int enrollMent) {
+			Date endDate, String status, String type, String roll, int repImg, int partyId, int majorId,
+			String partyName, int votes, String elected, String studentName, String collegeName, String collegeType,
+			String collegeLine, String majorName, int enrollMent) {
 		super();
 		this.percent = percent;
 		this.studentId = studentId;
@@ -25,18 +26,21 @@ public class VoteVo {
 		this.status = status;
 		this.type = type;
 		this.roll = roll;
-		this.repimo = repimo;
+		this.repImg = repImg;
 		this.partyId = partyId;
 		this.majorId = majorId;
 		this.partyName = partyName;
 		this.votes = votes;
 		this.elected = elected;
+		this.studentName = studentName;
 		this.collegeName = collegeName;
 		this.collegeType = collegeType;
 		this.collegeLine = collegeLine;
 		this.majorName = majorName;
 		this.enrollMent = enrollMent;
 	}
+
+
 
 
 
@@ -56,7 +60,7 @@ public class VoteVo {
 
 	// APOLLO.CANDIDATE
 	private String roll;
-	private int repimo;
+	private int repImg;
 	private int partyId;
 
 	// APOLLO.PARTY
@@ -64,6 +68,9 @@ public class VoteVo {
 	private String partyName;
 	private int votes;
 	private String elected;
+	
+	// APOLLO.STUDENT
+	private String studentName;
 
 	// APOLLO.MAJOR
 	private String collegeName;
@@ -144,12 +151,12 @@ public class VoteVo {
 		this.roll = roll;
 	}
 
-	public int getRepimo() {
-		return repimo;
+	public int getRepImg() {
+		return repImg;
 	}
 
-	public void setRepimo(int repimo) {
-		this.repimo = repimo;
+	public void setRepimg(int repImg) {
+		this.repImg = repImg;
 	}
 
 	public int getPartyId() {
@@ -245,14 +252,43 @@ public class VoteVo {
 
 
 
+	public String getStudentName() {
+		return studentName;
+	}
+
+
+
+
+
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
+	}
+
+
+
+
+
+	public void setRepImg(int repImg) {
+		this.repImg = repImg;
+	}
+
+
+
+
+
 	@Override
 	public String toString() {
 		return "VoteVo [percent=" + percent + ", studentId=" + studentId + ", electionNo=" + electionNo + ", voteDate="
 				+ voteDate + ", electionName=" + electionName + ", startDate=" + startDate + ", endDate=" + endDate
-				+ ", status=" + status + ", type=" + type + ", roll=" + roll + ", repimo=" + repimo + ", partyId="
+				+ ", status=" + status + ", type=" + type + ", roll=" + roll + ", repImg=" + repImg + ", partyId="
 				+ partyId + ", majorId=" + majorId + ", partyName=" + partyName + ", votes=" + votes + ", elected="
-				+ elected + ", collegeName=" + collegeName + ", collegeType=" + collegeType + ", collegeLine="
-				+ collegeLine + ", majorName=" + majorName + ", enrollMent=" + enrollMent + "]";
+				+ elected + ", studentName=" + studentName + ", collegeName=" + collegeName + ", collegeType="
+				+ collegeType + ", collegeLine=" + collegeLine + ", majorName=" + majorName + ", enrollMent="
+				+ enrollMent + "]";
 	}
+
+
+
+
 
 }

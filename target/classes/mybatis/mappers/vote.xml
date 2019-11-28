@@ -18,8 +18,11 @@
 	
 	<select id="partyDetail" parameterType="VoteVo" resultType="VoteVo">
 		<![CDATA[
-			SELECT * FROM CANDIDATE 
+				
+				SELECT * FROM CANDIDATE c, student s
 				WHERE 
+				c.studentId = s.studentId 
+				and  
 				PARTYID = (SELECT PARTYID FROM PARTY WHERE PARTYID = #{partyId})
 		]]>
 	</select>

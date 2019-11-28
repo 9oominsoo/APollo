@@ -33,8 +33,7 @@
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<h2 class="section-heading text-uppercase">기권하기</h2>
-					<h3 class="section-subheading text-muted">Lorem ipsum dolor
-						sit amet consectetur.</h3>
+					<h3 class="section-subheading text-muted"> 기권 또한 여러분의 소중한 한표입니다.</h3>
 				<button id="abstentionButton"  class="btn  btn-warning">기권하기</button>
 				</div>
 			</div>
@@ -187,16 +186,16 @@
 				voteList += "		<div class='row'>"
 				voteList += "			<div class='col-sm-6'>"
 				voteList += "				<div class='team-member'>"
-				voteList += "					<img class='mx-auto rounded-circle'src='${pageContext.request.contextPath }/assets/img/team/1.jpg'alt=''>"
+				voteList += "					<img class='mx-auto rounded-circle'src="+ list2[0].repImg + " alt=''>"
 				voteList += "					<h4>"+ list2[0].roll + "</h4>"
-				voteList += "					<p class='text-muted'>"+ list2[0].studentId + "</p>"
+				voteList += "					<p class='text-muted'>"+ list2[0].studentName + "</p>"
 				voteList += "				</div>"
 				voteList += "			</div>"
 				voteList += "			<div class='col-sm-6'>"
 				voteList += "				<div class='team-member'>"
-				voteList += "					<img class='mx-auto rounded-circle'src='${pageContext.request.contextPath }/assets/img/team/2.jpg'alt=''>"
+				voteList += "					<img class='mx-auto rounded-circle'src="+ list2[1].repImg + "  alt=''>"
 				voteList += "					<h4>"+ list2[1].roll+ "</h4>"
-				voteList += "					<p class='text-muted'>" + list2[1].studentId + "</p>"
+				voteList += "					<p class='text-muted'>" + list2[1].studentName + "</p>"
 				voteList += "				</div>"
 				voteList += "			</div>"
 				voteList += "		</div>"
@@ -220,6 +219,10 @@
 				
 				
 				
+				
+				
+				
+				
 				$("#selectParty").append(voteList);	
 				console.log(voteList);
 				voteList ="";
@@ -232,16 +235,16 @@
 					
 					modalstr += 	"<div class='col-sm-6'>"
 					modalstr += 		"<div class='team-member'>"
-					modalstr +=				"<img class='mx-auto rounded-circle' src='${pageContext.request.contextPath }/assets/img/team/1.jpg' alt=''>"
-					modalstr +=				"<h4>Kay Garland</h4>"
-					modalstr +=				"<p class='text-muted'>Lead Designer</p>"
+					modalstr +=				"<img class='mx-auto rounded-circle' src="+ list2[0].repImg + " alt=''>"
+					modalstr +=				"<h4>"+ list2[0].roll + "</h4>"
+					modalstr +=				"<p class='text-muted'>"+ list2[0].studentName + "</p>"
 					modalstr +=			"</div>"
 					modalstr +=		"</div>"
 					modalstr += 	"<div class='col-sm-6'>"
 					modalstr += 		"<div class='team-member'>"
-					modalstr +=				"<img class='mx-auto rounded-circle' src='${pageContext.request.contextPath }/assets/img/team/2.jpg' alt=''>"
-					modalstr +=				"<h4>Larry Parker</h4>"
-					modalstr +=			"<p class='text-muted'>Lead Marketer</p>"
+					modalstr +=				"<img class='mx-auto rounded-circle' src="+ list2[1].repImg + " alt=''>"
+					modalstr +=				"<h4>"+ list2[1].roll + "</h4>"
+					modalstr +=			"<p class='text-muted'>"+ list2[1].studentName + "</p>"
 					modalstr +=			"</div>"
 					modalstr +=		"</div>"
 					
